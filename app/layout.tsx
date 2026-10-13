@@ -15,10 +15,11 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
-  title: { default: 'Correia Tecnologia | Controle de acesso em Salvador', template: '%s | Correia Tecnologia' },
+  title: { default: 'Correia Tecnologia | Controle de Acesso em Salvador', template: '%s | Correia Tecnologia' },
   description: 'Controle de acesso facial, relógios de ponto e automação em Salvador. Conheça as soluções da Correia Tecnologia e solicite um orçamento.',
   openGraph: { type: 'website', locale: 'pt_BR', siteName: 'Correia Tecnologia e Automações', title: 'Correia Tecnologia | Tecnologia para proteger o que importa', description: 'Controle de acesso, reconhecimento facial, relógios de ponto e automação em Salvador e Bahia.', images: [{ url: '/images/reference/hero-acesso.webp', width: 1536, height: 1024, alt: 'Pessoa usando terminal de reconhecimento facial em uma entrada corporativa' }] },
-  twitter: { card: 'summary_large_image', title: 'Correia Tecnologia | Controle de acesso em Salvador', description: 'Controle de acesso facial, relógios de ponto e automação em Salvador.', images: ['/images/reference/hero-acesso.webp'] },
+  twitter: { card: 'summary_large_image', title: 'Correia Tecnologia | Controle de Acesso em Salvador', description: 'Controle de acesso facial, relógios de ponto e automação em Salvador.', images: ['/images/reference/hero-acesso.webp'] },
+  ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
   appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'Correia' },
   robots: process.env.VERCEL_ENV === 'preview' ? { index: false, follow: false } : { index: true, follow: true },
 };

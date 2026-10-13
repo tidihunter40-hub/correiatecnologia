@@ -4,10 +4,10 @@ import type { Metadata } from 'next';
 import { featuredEquipment, segments, services, whatsappLink } from '../lib/site';
 
 export const metadata: Metadata = {
-  title: 'Correia Tecnologia | Controle de acesso em Salvador',
+  title: 'Correia Tecnologia | Controle de Acesso em Salvador',
   description: 'Controle de acesso facial, relógios de ponto e automação em Salvador. Conheça as soluções da Correia Tecnologia e solicite seu orçamento.',
   alternates: { canonical: '/' },
-  openGraph: { url: '/', title: 'Correia Tecnologia | Controle de acesso facial em Salvador', description: 'Soluções em reconhecimento facial, controle de acesso, relógios de ponto e automação em Salvador e Bahia.' },
+  openGraph: { url: '/', title: 'Correia Tecnologia | Controle de Acesso em Salvador', description: 'Soluções em reconhecimento facial, controle de acesso, relógios de ponto e automação em Salvador e Bahia.' },
 };
 
 const homeServices = [

@@ -22,7 +22,7 @@ npm run start
 - Importe a raiz deste repositório como projeto Next.js; o `vercel.json` declara o framework sem substituir o build automático.
 - O projeto usa o `package-lock.json`, o comando `npm run build` e a saída padrão `.next` do Next.js. Não configure um diretório de saída estático.
 - O runtime está fixado em Node.js 24.x pelo `package.json`.
-- O código atual não exige variáveis de ambiente nem serviços externos para compilar. Integrações futuras devem usar variáveis do projeto Vercel; nunca incluir segredos em arquivos versionados ou variáveis `NEXT_PUBLIC_*`.
+- O código não exige variáveis de ambiente nem serviços externos para compilar. `GOOGLE_SITE_VERIFICATION` é opcional e serve somente à verificação por meta tag no Search Console. Nunca inclua tokens em arquivos versionados ou variáveis `NEXT_PUBLIC_*`.
 - Deploy Preview recebe `noindex` e `robots.txt` bloqueia rastreamento. A produção mantém indexação pública.
 - Depois de uma publicação autorizada, configure `correiatecnologia.com.br` e `www.correiatecnologia.com.br` em **Project → Settings → Domains**, conclua as instruções DNS mostradas pela Vercel e valide o domínio canônico. Nenhuma vinculação, publicação ou mudança DNS foi feita nesta preparação.
 
@@ -50,7 +50,14 @@ O site não contém checkout, pagamento ou painel administrativo. Nenhuma public
 ## Verificações realizadas
 
 - `npm run lint` (TypeScript) aprovado.
-- `npm run build` aprovado; 26 rotas estáticas/pré-renderizadas.
+- `npm run build` aprovado; o Next.js gerou 28 páginas estáticas/pré-renderizadas.
 - Checagem estática de 660 links internos e 20 caminhos de imagem.
 - Inspeção visual desktop/celular e verificação do menu móvel, CTAs e destino de WhatsApp no navegador local.
 - Relatório com escopo, verificações e itens pendentes: [RELATORIO_TECNICO.md](./RELATORIO_TECNICO.md).
+## Google Search Console
+
+O sitemap público está em `https://correiatecnologia.com.br/sitemap.xml` e é anunciado em `/robots.txt`.
+
+Para verificar uma propriedade de prefixo de URL pelo método da meta tag HTML, configure o token fornecido pelo Google (sem a tag `<meta>`) na variável `GOOGLE_SITE_VERIFICATION` do projeto Vercel e faça novo build/deploy depois de confirmar o projeto e o domínio. Para uma propriedade do tipo Domínio, adicione o registro DNS TXT fornecido pelo Search Console ao provedor DNS. Após a verificação, envie o sitemap no Search Console e use Inspeção de URL para pedir rastreamento de `/` e `/solucoes/relogios-de-ponto`.
+
+O repositório não contém o token de verificação. Não use um token presumido nem publique a configuração antes de confirmar a propriedade.

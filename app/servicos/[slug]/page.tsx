@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { SubpageHero } from '../../../components/subpage-hero';
 import { services, siteUrl, whatsappLink } from '../../../lib/site';
 
@@ -26,6 +26,7 @@ const serviceHeroImages: Record<string, { src: string; alt: string }> = {
 export function generateStaticParams() { return services.map((s) => ({ slug: s.slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === 'relogios-de-ponto') redirect('/solucoes/relogios-de-ponto');
   const service = services.find((item) => item.slug === slug);
   const seo = serviceSeo[slug];
   return service && seo ? {
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  if (slug === 'relogios-de-ponto') redirect('/solucoes/relogios-de-ponto');
   const item = services.find((s) => s.slug === slug);
   if (!item) notFound();
   const hero = serviceHeroImages[item.slug];

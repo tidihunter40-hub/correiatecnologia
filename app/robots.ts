@@ -6,6 +6,5 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: isPreview ? { userAgent: '*', disallow: '/' } : { userAgent: '*', allow: '/' },
     sitemap: `${siteUrl}/sitemap.xml`,
-    ...(isPreview ? {} : { host: siteUrl }),
   };
 }

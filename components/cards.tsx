@@ -28,6 +28,7 @@ function SolutionIcon({ kind }: { kind: string }) {
 }
 
 export function SolutionCard({ item }: { item: SolutionCardItem }) {
+  const href = item.slug === 'relogios-de-ponto' ? '/solucoes/relogios-de-ponto' : `/servicos/${item.slug}`;
   const containImage = ['face', 'box', 'calendar'].includes(item.icon);
   return <article className="solution-feature-card">
     <div className={`solution-card-image ${containImage ? 'solution-card-image-contain' : ''}`}>
@@ -40,7 +41,7 @@ export function SolutionCard({ item }: { item: SolutionCardItem }) {
       <ul className="solution-feature-list" aria-label={`Diferenciais de ${item.title}`}>
         {item.features.map((feature) => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}
       </ul>
-      <Link className="solution-card-button" href={`/servicos/${item.slug}`}>Conhecer solução <span aria-hidden="true">→</span></Link>
+      <Link className="solution-card-button" href={href}>Conhecer solução <span aria-hidden="true">→</span></Link>
     </div>
   </article>;
 }
