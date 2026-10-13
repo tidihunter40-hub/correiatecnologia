@@ -1,0 +1,22 @@
+{
+  "id": "/",
+  "name": "Correia Tecnologia e Automações",
+  "short_name": "Correia",
+  "description": "Soluções em controle de acesso, reconhecimento facial, relógios de ponto e automação em Salvador e Bahia.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#061A35",
+  "background_color": "#FFFFFF",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Equipamentos", "short_name": "Equipamentos", "url": "/catalogo", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Contato", "short_name": "Contato", "url": "/contato", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}
