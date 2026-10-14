@@ -5,11 +5,11 @@ import { VideoShowcase } from '../components/video-showcase';
 import { featuredEquipment, segments, services, solutionPath, whatsappLink } from '../lib/site';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Correia Tecnologia e Automações | Ponto e Acesso Facial em Salvador' },
-  description: 'Conheça a Correia Tecnologia e Automações. Soluções em relógio de ponto facial, controle de acesso e reconhecimento facial para empresas em Salvador e região.',
+  title: { absolute: 'Correia Tecnologia | Ponto Facial e Controle de Acesso em Salvador BA' },
+  description: 'Correia Tecnologia e Automações em Salvador, Bahia. Soluções em relógio de ponto facial, controle de acesso, reconhecimento facial e automação para empresas.',
   alternates: { canonical: '/' },
-  openGraph: { url: '/', title: 'Correia Tecnologia e Automações | Ponto e Acesso Facial em Salvador', description: 'Conheça a Correia Tecnologia e Automações. Soluções em relógio de ponto facial, controle de acesso e reconhecimento facial para empresas em Salvador e região.', images: [{ url: '/images/heroes/controle-acesso-facial.webp', width: 1672, height: 941, alt: 'Visitante usando terminal de reconhecimento facial em uma entrada corporativa' }] },
-  twitter: { card: 'summary_large_image', title: 'Correia Tecnologia e Automações | Ponto e Acesso Facial em Salvador', description: 'Conheça a Correia Tecnologia e Automações. Soluções em relógio de ponto facial, controle de acesso e reconhecimento facial para empresas em Salvador e região.', images: ['/images/heroes/controle-acesso-facial.webp'] },
+  openGraph: { url: '/', title: 'Correia Tecnologia | Ponto Facial e Controle de Acesso em Salvador BA', description: 'Correia Tecnologia e Automações em Salvador, Bahia. Soluções em relógio de ponto facial, controle de acesso, reconhecimento facial e automação para empresas.', images: [{ url: '/images/heroes/controle-acesso-facial.webp', width: 1672, height: 941, alt: 'Visitante usando terminal de reconhecimento facial em uma entrada corporativa' }] },
+  twitter: { card: 'summary_large_image', title: 'Correia Tecnologia | Ponto Facial e Controle de Acesso em Salvador BA', description: 'Correia Tecnologia e Automações em Salvador, Bahia. Soluções em relógio de ponto facial, controle de acesso, reconhecimento facial e automação para empresas.', images: ['/images/heroes/controle-acesso-facial.webp'] },
 };
 
 const homeServices = [
@@ -50,7 +50,7 @@ export default function Home() {
       <div className="reference-container reference-hero-inner">
         <div className="reference-hero-copy">
           <div className="reference-eyebrow"><span>CONTROLE DE ACESSO E AUTOMAÇÃO</span><i /></div>
-          <h1 id="home-title">Tecnologia inteligente<br />para <em>proteger o que importa.</em></h1>
+          <h1 id="home-title">Tecnologia e Automação<br />para Empresas em <em>Salvador, Bahia</em></h1>
           <p>Soluções em reconhecimento facial, controle de acesso,<br className="desktop-break" /> relógios de ponto e automação para empresas, condomínios<br className="desktop-break" /> e estabelecimentos comerciais.</p>
           <div className="reference-actions">
             <a className="reference-button reference-button-primary" href={whatsappLink('Olá! Gostaria de solicitar um orçamento para as soluções da Correia Tecnologia.')} target="_blank" rel="noreferrer"><svg className="reference-whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5A12.2 12.2 0 0 0 5.5 22l-1.4 5 5.2-1.3A12.3 12.3 0 1 0 16 3.5Z"/><path d="M12 10.5c-.5 0-1 .4-1.2.9-.4 1-.2 2.4.9 4.1 1.4 2.2 3.2 3.8 5.5 4.7 1.5.6 2.8.5 3.6-.2.4-.4.7-1.6.4-2l-2.6-1.3c-.3-.2-.6-.2-.8.1l-1.1 1.2c-1.4-.5-3.3-2.2-3.8-3.5l.8-.9c.2-.2.3-.5.1-.8l-1.2-2.1c-.1-.2-.3-.2-.6-.2Z"/></svg>Solicitar Orçamento<span className="button-arrow" aria-hidden="true">→</span></a>
