@@ -17,7 +17,7 @@ type SubpageHeroProps = {
 
 export function SubpageHero({ eyebrow, title, text, image, imageAlt, action = 'Solicitar orçamento', secondary, benefits = [], illustrative = false }: SubpageHeroProps) {
   return <section className="subpage-hero">
-    <Image className="subpage-hero-photo" src={image} alt={imageAlt} fill priority quality={88} sizes="(max-width: 760px) 100vw, 58vw" />
+    <Image className="subpage-hero-photo" src={image} alt={imageAlt} fill priority quality={88} sizes="(max-width: 1199px) 100vw, 70vw" />
     <div className="subpage-hero-shade" />
     <div className="container subpage-hero-inner">
       <div className="subpage-hero-copy">

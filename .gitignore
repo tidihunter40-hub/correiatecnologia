@@ -1,5 +1,6 @@
 .next/
 .next-output/
+.next-mobile-qa/
 .next-final/
 .next-pwa-*/
 .vercel/

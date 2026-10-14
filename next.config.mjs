@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  ...(process.env.CORREIA_QA_DIST_DIR ? { distDir: process.env.CORREIA_QA_DIST_DIR } : {}),
   poweredByHeader: false,
   async headers() {
     return [{

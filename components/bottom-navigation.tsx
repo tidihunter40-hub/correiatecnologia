@@ -6,11 +6,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePWA } from './pwa-provider';
 import { whatsappLink } from '../lib/site';
 
-type MainItem = { id: 'home' | 'solutions' | 'equipment' | 'segments' | 'more'; label: string; href?: string };
+type MainItem = { id: 'home' | 'solutions' | 'equipment' | 'segments' | 'more'; label: string; shortLabel?: string; href?: string };
 const items: MainItem[] = [
   { id: 'home', label: 'Início', href: '/' },
   { id: 'solutions', label: 'Soluções', href: '/servicos' },
-  { id: 'equipment', label: 'Equipamentos', href: '/catalogo' },
+  { id: 'equipment', label: 'Equipamentos', shortLabel: 'Equip.', href: '/catalogo' },
   { id: 'segments', label: 'Segmentos', href: '/segmentos' },
   { id: 'more', label: 'Mais' },
 ];
@@ -39,7 +39,7 @@ function NavIcon({ name }: { name: string }) {
 
 function isRouteActive(pathname: string, href: string) {
   if (href === '/') return pathname === '/';
-  if (href === '/servicos') return pathname === href || pathname.startsWith('/servicos/') || pathname.startsWith('/solucoes/');
+  if (href === '/servicos') return pathname === href || pathname.startsWith('/servicos/') || pathname.startsWith('/solucoes/') || pathname === '/controle-de-acesso-facial-salvador' || pathname === '/relogio-de-ponto-facial-salvador';
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
@@ -122,7 +122,7 @@ export function BottomNavigation() {
       {items.map((item) => {
         const active = item.id === 'more' ? morePathActive : isRouteActive(pathname, item.href!);
         if (item.id === 'more') return <button key={item.id} className="bottom-navigation-item" data-active={active || moreOpen || undefined} type="button" aria-label="Mais páginas" aria-expanded={moreOpen} aria-controls={moreOpen ? 'more-menu-sheet' : undefined} onClick={() => setMoreOpen((open) => !open)} ref={triggerRef}><span className="bottom-navigation-icon"><NavIcon name={item.id}/></span><span className="bottom-navigation-label">{item.label}</span></button>;
-        return <Link key={item.id} className="bottom-navigation-item" data-active={active || undefined} href={item.href!} aria-current={active ? 'page' : undefined}><span className="bottom-navigation-icon"><NavIcon name={item.id}/></span><span className="bottom-navigation-label">{item.label}</span></Link>;
+        return <Link key={item.id} className="bottom-navigation-item" data-active={active || undefined} href={item.href!} aria-label={item.label} aria-current={active ? 'page' : undefined}><span className="bottom-navigation-icon"><NavIcon name={item.id}/></span><span className="bottom-navigation-label"><span className={item.shortLabel ? 'bottom-navigation-full-label' : ''}>{item.label}</span>{item.shortLabel && <span className="bottom-navigation-short-label" aria-hidden="true">{item.shortLabel}</span>}</span></Link>;
       })}
     </nav>
     <MoreMenuSheet open={moreOpen} onClose={closeMore} pathname={pathname} triggerRef={triggerRef}/>
