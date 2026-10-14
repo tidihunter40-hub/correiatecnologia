@@ -1,11 +1,16 @@
-# Imagens da seção Equipamentos em Destaque
+# Registro de imagens da seção de equipamentos
 
-As três imagens desta seção foram recortadas da imagem de referência visual enviada pelo cliente (`codex-clipboard-fa2b61d3-50ba-4717-9dc3-94e85577ca03.png`). Os arquivos finais estão em WebP, com dimensões próximas de 500 × 334 px e compressão otimizada para a página inicial.
+**Revisão:** 14/10/2026
 
-| Arquivo | Conteúdo ilustrado | Origem |
-| --- | --- | --- |
-| `public/images/equipamentos/destaque-reconhecimento-facial.webp` | Uso de terminal facial em entrada corporativa | Recorte da coluna esquerda da referência do cliente |
-| `public/images/equipamentos/destaque-relogio-ponto.webp` | Registro biométrico em relógio de ponto | Recorte da coluna central da referência do cliente |
-| `public/images/equipamentos/destaque-catracas.webp` | Catracas eletrônicas em ambiente corporativo | Recorte da coluna direita da referência do cliente |
+As imagens em destaque usam recursos temáticos de maior resolução, todos identificados como ilustrativos quando aplicável. As imagens não confirmam marcas, modelos ou disponibilidade comercial.
 
-Os arquivos servem como imagens ilustrativas da composição aprovada. A referência é uma arte de mockup; não foi possível confirmar a autoria ou a licença das fotografias e de eventuais marcas/modelos que apareçam nela. Antes da publicação, a empresa deve confirmar que tem autorização para usar essas imagens ou substituí-las por fotografias próprias/licenciadas. Elas não devem ser apresentadas como instalações reais da Correia Tecnologia.
+| Categoria | Arquivo | Dimensão nativa | Observação |
+| --- | --- | ---: | --- |
+| Terminal facial | `public/images/solutions/acesso-facial.webp` | 1440 × 960 | Ilustração de uso do terminal; modelo não confirmado |
+| Relógio de ponto | `public/images/heroes/relogio-ponto-facial.webp` | 1672 × 941 | Gerada para o projeto; imagem ilustrativa |
+| Catracas | `public/images/solutions/catracas-entrada.webp` | 1440 × 960 | Ilustração de controle de passagem |
+| Linha de equipamentos | `public/images/equipamentos/linha-equipamentos.webp` | 1672 × 941 | Gerada para o projeto; conjunto ilustrativo |
+
+Os três primeiros cards da Home são imagens de soluções, não fotos de instalações da Correia. A seção de projetos realizados não reutiliza essas imagens como cases e permanece aguardando fotografias autorizadas.
+
+Consulte [RELATORIO_IMAGENS.md](RELATORIO_IMAGENS.md) e [INVENTARIO_IMAGENS.csv](INVENTARIO_IMAGENS.csv) para origem, estado de uso e pendências de licenciamento do acervo.

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { solutionPath, whatsappLink } from '../lib/site';
 
 export function ServiceCard({ item }: { item: { slug: string; title: string; short: string; icon: string; image?: string; alt?: string } }) {
-  return <Link href={solutionPath(item.slug)} className="service-card">{item.image ? <div className="service-card-photo"><Image src={item.image} alt={item.alt || item.title} fill sizes="(max-width: 760px) 100vw, 33vw" /></div> : <span className="card-icon" aria-hidden="true">{item.icon}</span>}<span className="card-arrow" aria-hidden="true">↗</span><h3>{item.title}</h3><p>{item.short}</p><span className="text-link">Saiba mais <span aria-hidden="true">→</span></span></Link>;
+  return <Link href={solutionPath(item.slug)} className="service-card">{item.image ? <div className="service-card-photo"><Image src={item.image} alt={item.alt || item.title} fill quality={88} sizes="(max-width: 760px) 100vw, 33vw" /></div> : <span className="card-icon" aria-hidden="true">{item.icon}</span>}<span className="card-arrow" aria-hidden="true">↗</span><h3>{item.title}</h3><p>{item.short}</p><span className="text-link">Saiba mais <span aria-hidden="true">→</span></span></Link>;
 }
 
 type SolutionCardItem = {
@@ -33,7 +33,7 @@ export function SolutionCard({ item }: { item: SolutionCardItem }) {
   const href = solutionPath(item.slug);
   return <article className="solution-feature-card">
     <div className="solution-card-image">
-      <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, (max-width: 1050px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
+      <Image src={item.image} alt={item.alt} fill quality={88} sizes="(max-width: 760px) 100vw, (max-width: 1050px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
     </div>
     <div className="solution-card-content">
       <div className="solution-card-category"><span className="solution-card-icon"><SolutionIcon kind={item.icon} /></span><span>{item.category}</span></div>

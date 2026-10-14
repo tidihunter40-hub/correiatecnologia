@@ -17,7 +17,7 @@ type SubpageHeroProps = {
 
 export function SubpageHero({ eyebrow, title, text, image, imageAlt, action = 'Solicitar orçamento', secondary, benefits = [], illustrative = false }: SubpageHeroProps) {
   return <section className="subpage-hero">
-    <Image className="subpage-hero-photo" src={image} alt={imageAlt} fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+    <Image className="subpage-hero-photo" src={image} alt={imageAlt} fill priority quality={88} sizes="(max-width: 760px) 100vw, 58vw" />
     <div className="subpage-hero-shade" />
     <div className="container subpage-hero-inner">
       <div className="subpage-hero-copy">
@@ -29,7 +29,7 @@ export function SubpageHero({ eyebrow, title, text, image, imageAlt, action = 'S
           {secondary && <Link className="reference-button reference-button-outline" href={secondary.href}>{secondary.label}<span aria-hidden="true">→</span></Link>}
         </div>
         {!!benefits.length && <div className="subpage-benefits">{benefits.map((benefit) => <span key={benefit}><i aria-hidden="true">✓</i>{benefit}</span>)}</div>}
-        {illustrative && <small className="subpage-disclaimer">Imagem ilustrativa da referência visual; não representa projeto realizado.</small>}
+        {illustrative && <small className="subpage-disclaimer">Imagem ilustrativa; não representa uma instalação realizada pela Correia Tecnologia.</small>}
       </div>
     </div>
   </section>;

@@ -1,28 +1,23 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { VideoShowcase } from '../components/video-showcase';
 import { featuredEquipment, segments, services, solutionPath, whatsappLink } from '../lib/site';
 
 export const metadata: Metadata = {
   title: { absolute: 'Correia Tecnologia | Controle de Acesso em Salvador' },
   description: 'Controle de acesso facial, relógios de ponto e automação em Salvador. Conheça as soluções da Correia Tecnologia e solicite seu orçamento.',
   alternates: { canonical: '/' },
-  openGraph: { url: '/', title: 'Correia Tecnologia | Controle de Acesso em Salvador', description: 'Soluções em reconhecimento facial, controle de acesso, relógios de ponto e automação em Salvador e Bahia.', images: [{ url: '/images/reference/hero-acesso.webp', width: 1536, height: 1024, alt: 'Pessoa usando terminal de reconhecimento facial em uma entrada corporativa' }] },
+  openGraph: { url: '/', title: 'Correia Tecnologia | Controle de Acesso em Salvador', description: 'Soluções em reconhecimento facial, controle de acesso, relógios de ponto e automação em Salvador e Bahia.', images: [{ url: '/images/heroes/controle-acesso-facial.webp', width: 1672, height: 941, alt: 'Visitante usando terminal de reconhecimento facial em uma entrada corporativa' }] },
 };
 
 const homeServices = [
-  { slug: services[0].slug, title: 'Controle de Acesso Facial', description: 'Leitura facial rápida e segura para empresas, condomínios e escolas.', image: 'servico-acesso-facial' },
-  { slug: services[1].slug, title: 'Relógios de Ponto', description: 'Gestão completa de jornada de trabalho com reconhecimento facial.', image: 'servico-relogio-ponto' },
-  { slug: services[2].slug, title: 'Automação de Entradas', description: 'Catracas, portões e automação integrada para o seu ambiente.', image: 'servico-automacao' },
-  { slug: services[3].slug, title: 'Venda de Equipamentos', description: 'Equipamentos das principais marcas com garantia e suporte.', image: 'servico-venda' },
-  { slug: services[4].slug, title: 'Locação de Equipamentos', description: 'Soluções sob medida para o seu negócio, com instalação inclusa.', image: 'servico-locacao' },
-  { slug: services[5].slug, title: 'Instalação e Suporte Técnico', description: 'Equipe especializada para instalação, manutenção e suporte.', image: 'servico-instalacao' },
-];
-
-const segmentPhotos = [
-  ['condominios', 'segmento-condominios'], ['empresas', 'segmento-empresas'],
-  ['escolas', 'segmento-escolas'], ['academias', 'segmento-academias'],
-  ['comercios', 'segmento-comercios'], ['clinicas', 'segmento-clinicas'],
+  { slug: services[0].slug, title: 'Controle de Acesso Facial', description: 'Leitura facial rápida e segura para empresas, condomínios e escolas.', image: '/images/solutions/acesso-facial.webp' },
+  { slug: services[1].slug, title: 'Relógios de Ponto', description: 'Gestão completa de jornada de trabalho com reconhecimento facial.', image: '/images/heroes/relogio-ponto-facial.webp' },
+  { slug: services[2].slug, title: 'Automação de Entradas', description: 'Catracas, portões e automação integrada para o seu ambiente.', image: '/images/solutions/catracas-entrada.webp' },
+  { slug: services[3].slug, title: 'Venda de Equipamentos', description: 'Equipamentos das principais marcas com garantia e suporte.', image: '/images/equipamentos/linha-equipamentos.webp' },
+  { slug: services[4].slug, title: 'Locação de Equipamentos', description: 'Soluções sob medida para o seu negócio, com instalação inclusa.', image: '/images/solutions/cameras-seguranca.webp' },
+  { slug: services[5].slug, title: 'Instalação e Suporte Técnico', description: 'Equipe especializada para instalação, manutenção e suporte.', image: '/images/heroes/instalacao-controle-acesso.webp' },
 ];
 
 function FeatureIcon({ kind }: { kind: string }) {
@@ -49,7 +44,7 @@ function EquipmentFeatureIcon({ index }: { index: number }) {
 export default function Home() {
   return <main id="conteudo" className="reference-home">
     <section className="reference-hero" aria-labelledby="home-title">
-      <Image className="reference-hero-photo" src="/images/reference/hero-acesso.webp" alt="Mulher utilizando terminal de reconhecimento facial em uma entrada corporativa" fill priority sizes="(max-width: 760px) 100vw, 48vw" />
+      <Image className="reference-hero-photo" src="/images/heroes/controle-acesso-facial.webp" alt="Fotografia ilustrativa de visitante usando terminal de reconhecimento facial em uma entrada corporativa moderna" fill priority quality={88} sizes="(max-width: 760px) 100vw, 48vw" />
       <div className="reference-hero-shade" />
       <div className="reference-container reference-hero-inner">
         <div className="reference-hero-copy">
@@ -70,18 +65,9 @@ export default function Home() {
       </div>
     </section>
 
-    <section className="reference-services" id="solucoes" aria-label="Soluções da Correia Tecnologia">
-      <div className="reference-container reference-service-grid">
-        {homeServices.map((item) => <Link key={item.slug} href={solutionPath(item.slug)} className={`reference-service-card ${item.slug === services[5].slug ? 'reference-install-card' : ''}`}>
-          <div className="reference-service-photo"><Image src={`/images/reference/${item.image}.webp`} alt="" fill sizes="(max-width: 760px) 35vw, 90px" /></div>
-          <div className="reference-service-copy"><h2>{item.title}</h2><p>{item.description}</p><span className="reference-card-link">Saiba mais <b aria-hidden="true">→</b></span></div>
-        </Link>)}
-      </div>
-    </section>
-
     <section className="reference-lower" aria-label="Sobre a Correia e segmentos atendidos">
       <div className="reference-about">
-        <div className="reference-building"><Image src="/images/reference/institucional-edificio.webp" alt="Edifício corporativo em uma área urbana, imagem ilustrativa" fill sizes="(max-width: 760px) 100vw, 19vw" /></div>
+        <div className="reference-building"><Image src="/images/solutions/edificio-comercial.webp" alt="Edifício comercial contemporâneo, imagem ilustrativa" fill quality={88} sizes="(max-width: 760px) 100vw, 19vw" /></div>
         <div className="reference-about-copy">
           <div className="reference-eyebrow reference-eyebrow-light">SOBRE A CORREIA <em>TECNOLOGIA</em></div>
           <h2>Mais que equipamentos,<br/>soluções completas em<br/>segurança e automação.</h2>
@@ -99,12 +85,36 @@ export default function Home() {
         <div className="reference-segments">
           <div className="reference-segments-head"><div><h2>Segmentos que atendemos</h2><p>Soluções personalizadas para diferentes necessidades.</p></div><Link href="/segmentos">Ver todos os segmentos <span aria-hidden="true">→</span></Link></div>
           <div className="reference-segment-grid">
-            {segments.map((segment, index) => <Link key={segment.slug} href={`/segmentos/${segment.slug}`} className="reference-segment-card">
-              <div><Image src={`/images/reference/${segmentPhotos[index][1]}.webp`} alt={`Imagem ilustrativa de ${segment.title.toLowerCase()}`} fill sizes="(max-width: 760px) 30vw, 132px" /></div>
+            {segments.map((segment) => <Link key={segment.slug} href={`/segmentos/${segment.slug}`} className="reference-segment-card">
+              <div><Image src={`/images/segments/${segment.slug}.webp`} alt={`Imagem ilustrativa de ${segment.title.toLowerCase()}`} fill quality={88} sizes="(max-width: 760px) 30vw, 15vw" /></div>
               <h3>{segment.title}</h3>
             </Link>)}
           </div>
         </div>
+      </div>
+    </section>
+
+    <VideoShowcase
+      id="dixi-facial"
+      eyebrow="DIXI FACIAL · DEMONSTRAÇÃO"
+      title="Controle de Ponto com Reconhecimento Facial"
+      description="Conheça uma solução moderna para registrar a jornada de trabalho com praticidade, agilidade e tecnologia de reconhecimento facial."
+      src="/videos/dixi-facial.mp4"
+      poster="/videos/dixi-facial-poster.png"
+      previewEnd={20}
+      duration="prévia de 20 s · vídeo completo 1 min 18 s"
+      highlights={['Registro de jornada com reconhecimento facial', 'Experiência prática para a rotina da equipe', 'Venda, locação e instalação sob consulta']}
+      primaryLabel="Conhecer relógios de ponto"
+      primaryHref="/solucoes/relogios-de-ponto"
+      quoteMessage="Olá! Gostaria de solicitar um orçamento para relógio de ponto DIXI Facial."
+    />
+
+    <section className="reference-services" id="solucoes" aria-label="Soluções da Correia Tecnologia">
+      <div className="reference-container reference-service-grid">
+        {homeServices.map((item) => <Link key={item.slug} href={solutionPath(item.slug)} className={`reference-service-card ${item.slug === services[5].slug ? 'reference-install-card' : ''}`}>
+          <div className="reference-service-photo"><Image src={item.image} alt="" fill quality={88} sizes="(max-width: 760px) 35vw, 22vw" /></div>
+          <div className="reference-service-copy"><h2>{item.title}</h2><p>{item.description}</p><span className="reference-card-link">Saiba mais <b aria-hidden="true">→</b></span></div>
+        </Link>)}
       </div>
     </section>
 
@@ -120,7 +130,7 @@ export default function Home() {
         </div>
         <div className="featured-equipment-grid">
           {featuredEquipment.map((item) => <article className="featured-equipment-card" key={item.title}>
-            <div className="featured-equipment-image"><Image src={item.image} alt={item.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw" /></div>
+            <div className="featured-equipment-image"><Image src={item.image} alt={item.alt} fill quality={88} sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw" /></div>
             <div className="featured-equipment-content">
               <span className="featured-equipment-category">{item.kind}</span>
               <h3>{item.title}</h3>

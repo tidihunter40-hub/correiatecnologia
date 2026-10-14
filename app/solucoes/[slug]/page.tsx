@@ -73,7 +73,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
       imageAlt={service.alt}
       secondary={{ label: 'Ver todas as soluções', href: '/servicos' }}
       benefits={['Avaliação da necessidade', 'Opções sob consulta', 'Atendimento em Salvador']}
-      illustrative={service.slug !== 'relogios-de-ponto'}
+      illustrative
     />
     <section className="section service-detail-section">
       <div className="container">

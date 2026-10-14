@@ -15,12 +15,12 @@ const serviceSeo: Record<string, { title: string; description: string }> = {
 };
 
 const serviceHeroImages: Record<string, { src: string; alt: string }> = {
-  'controle-de-acesso-facial': { src: '/images/reference/servico-acesso-facial.webp', alt: 'Terminal de reconhecimento facial, imagem ilustrativa da referência visual' },
-  'relogios-de-ponto': { src: '/images/relogio-ponto-foto.webp', alt: 'Relógio eletrônico de ponto apresentado no site da Correia' },
-  'automacao-de-entradas': { src: '/images/reference/servico-automacao.webp', alt: 'Catracas de entrada, imagem ilustrativa da referência visual' },
-  'venda-de-equipamentos': { src: '/images/reference/servico-venda.webp', alt: 'Equipamentos de controle de acesso, imagem ilustrativa da referência visual' },
-  'locacao-de-equipamentos': { src: '/images/reference/servico-locacao.webp', alt: 'Equipamentos de acesso, imagem ilustrativa da referência visual' },
-  'instalacao-de-solucoes': { src: '/images/reference/servico-instalacao.webp', alt: 'Instalação de terminal de acesso, imagem ilustrativa da referência visual' },
+  'controle-de-acesso-facial': { src: '/images/solutions/acesso-facial.webp', alt: 'Pessoa usando terminal de reconhecimento facial em ambiente corporativo; imagem ilustrativa' },
+  'relogios-de-ponto': { src: '/images/heroes/relogio-ponto-facial.webp', alt: 'Colaborador registrando ponto em terminal biométrico; imagem ilustrativa' },
+  'automacao-de-entradas': { src: '/images/solutions/catracas-entrada.webp', alt: 'Catracas automáticas em entrada corporativa; imagem ilustrativa' },
+  'venda-de-equipamentos': { src: '/images/equipamentos/linha-equipamentos.webp', alt: 'Linha ilustrativa de equipamentos de controle de acesso e ponto' },
+  'locacao-de-equipamentos': { src: '/images/solutions/cameras-seguranca.webp', alt: 'Câmeras de segurança em edifício comercial; imagem ilustrativa' },
+  'instalacao-de-solucoes': { src: '/images/heroes/instalacao-controle-acesso.webp', alt: 'Técnico instalando terminal de controle de acesso; imagem ilustrativa' },
 };
 
 export function generateStaticParams() { return services.map((s) => ({ slug: s.slug })); }
@@ -64,7 +64,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   };
   return <main id="conteudo">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceSchema, breadcrumbSchema]) }} />
-    <SubpageHero eyebrow={`Soluções / ${item.title}`} title={<>{item.title} para o seu <em>ambiente.</em></>} text={item.detail} image={hero.src} imageAlt={hero.alt} secondary={{ label: 'Ver todas as soluções', href: '/servicos' }} benefits={['Avaliação da necessidade', 'Opções sob consulta', 'Atendimento em Salvador']} illustrative={item.slug !== 'relogios-de-ponto'} />
-    <section className="section service-detail-section"><div className="container detail-grid"><div className="detail-photo"><Image src={item.image || hero.src} alt={item.alt || hero.alt} fill sizes="(max-width: 760px) 100vw, 42vw"/><span className="photo-label">{item.slug === 'relogios-de-ponto' ? 'Equipamento apresentado no site' : 'Imagem ilustrativa'}</span></div><div className="detail-copy"><span className="eyebrow">Uma solução para sua realidade</span><h2>Planejada para o seu <em>dia a dia.</em></h2><p>{item.detail}</p><p>A recomendação considera o ambiente, o fluxo de pessoas, a infraestrutura e as necessidades específicas do projeto. Fale com a equipe para entender opções, disponibilidade e escopo.</p><ul className="check-list"><li>Avaliação inicial das necessidades</li><li>Indicação conforme o cenário apresentado</li><li>Orçamento e condições mediante consulta</li></ul><a className="button" href={whatsappLink(`Olá! Gostaria de conversar sobre ${item.title}.`)} target="_blank" rel="noreferrer">Consultar no WhatsApp <span>↗</span></a><Link className="back-link" href="/servicos">← Ver todas as soluções</Link></div></div></section>
+    <SubpageHero eyebrow={`Soluções / ${item.title}`} title={<>{item.title} para o seu <em>ambiente.</em></>} text={item.detail} image={hero.src} imageAlt={hero.alt} secondary={{ label: 'Ver todas as soluções', href: '/servicos' }} benefits={['Avaliação da necessidade', 'Opções sob consulta', 'Atendimento em Salvador']} illustrative />
+    <section className="section service-detail-section"><div className="container detail-grid"><div className="detail-photo"><Image src={item.image || hero.src} alt={item.alt || hero.alt} fill quality={88} sizes="(max-width: 760px) 100vw, 42vw"/><span className="photo-label">Imagem ilustrativa de equipamento ou solução</span></div><div className="detail-copy"><span className="eyebrow">Uma solução para sua realidade</span><h2>Planejada para o seu <em>dia a dia.</em></h2><p>{item.detail}</p><p>A recomendação considera o ambiente, o fluxo de pessoas, a infraestrutura e as necessidades específicas do projeto. Fale com a equipe para entender opções, disponibilidade e escopo.</p><ul className="check-list"><li>Avaliação inicial das necessidades</li><li>Indicação conforme o cenário apresentado</li><li>Orçamento e condições mediante consulta</li></ul><a className="button" href={whatsappLink(`Olá! Gostaria de conversar sobre ${item.title}.`)} target="_blank" rel="noreferrer">Consultar no WhatsApp <span>↗</span></a><Link className="back-link" href="/servicos">← Ver todas as soluções</Link></div></div></section>
   </main>;
 }

@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     url: canonicalPath,
     title: pageTitle,
     description: pageDescription,
-    images: [{ url: '/images/relogio-ponto-foto.webp', alt: 'Relógio eletrônico de ponto com leitor biométrico' }],
+    images: [{ url: '/images/heroes/relogio-ponto-facial.webp', alt: 'Colaborador registrando ponto em terminal biométrico; imagem ilustrativa' }],
   },
-  twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription, images: ['/images/relogio-ponto-foto.webp'] },
+  twitter: { card: 'summary_large_image', title: pageTitle, description: pageDescription, images: ['/images/heroes/relogio-ponto-facial.webp'] },
 };
 
 const structuredData = [
@@ -50,7 +50,7 @@ export default function RelogiosDePontoPage() {
   return <main id="conteudo">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} />
     <section className="subpage-hero" aria-labelledby="point-page-title">
-      <Image className="subpage-hero-photo" src="/images/relogio-ponto-foto.webp" alt="Relógio eletrônico de ponto com leitor biométrico" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+      <Image className="subpage-hero-photo" src="/images/heroes/relogio-ponto-facial.webp" alt="Colaborador registrando ponto em terminal biométrico; fotografia ilustrativa" fill priority quality={88} sizes="(max-width: 760px) 100vw, 58vw" />
       <div className="subpage-hero-shade" />
       <div className="container subpage-hero-inner">
         <div className="subpage-hero-copy">
@@ -62,6 +62,7 @@ export default function RelogiosDePontoPage() {
             <Link className="reference-button reference-button-outline" href="/catalogo">Ver equipamentos <span aria-hidden="true">→</span></Link>
           </div>
           <div className="subpage-benefits"><span><i aria-hidden="true">✓</i>Venda e locação</span><span><i aria-hidden="true">✓</i>Instalação sob consulta</span><span><i aria-hidden="true">✓</i>Atendimento em Salvador</span></div>
+          <small className="subpage-disclaimer">Imagem ilustrativa; não representa modelo específico nem instalação realizada pela Correia Tecnologia.</small>
         </div>
       </div>
     </section>

@@ -76,7 +76,7 @@ export default function Contato() {
           </div>
         </div>
         <div className="contact-hero-photo">
-          <Image src="/images/contato/atendimento.webp" alt="Pessoa usando terminal de reconhecimento facial na entrada de um ambiente corporativo; imagem ilustrativa fornecida pelo cliente" fill priority sizes="(max-width: 760px) 100vw, 48vw" />
+          <Image src="/images/contato/atendimento.webp" alt="Pessoa usando terminal de reconhecimento facial na entrada de um ambiente corporativo; imagem ilustrativa fornecida pelo cliente" fill priority quality={88} sizes="(max-width: 760px) 100vw, 48vw" />
           <span>Imagem ilustrativa de uma solução de acesso</span>
         </div>
       </div>
