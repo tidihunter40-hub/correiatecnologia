@@ -2,7 +2,7 @@
 
 **Atualizado em:** 14/10/2026
 **Escopo:** SEO local para Salvador, Bahia; correção e validação da base canônica.
-**Estado desta revisão:** alterações atuais somente no código local; não publicadas.
+**Estado desta revisão:** commit `6de304e` enviado à branch `main`; produção atualizada e verificada em 14/10/2026.
 
 ## Alterações implementadas no código local
 
@@ -33,12 +33,12 @@
 | Redirecionamentos | **CONFIGURAÇÃO CONFERIDA** | Regras permanentes no `next.config.mjs` preservam redirecionamento do host apex para HTTPS `www` e aliases de serviço. Não foi possível repetir requisição HTTP ao servidor local neste sandbox. |
 | Responsividade visual | **NÃO TESTADO nesta revisão** | Nenhuma regra CSS/layout foi alterada, mas a mudança de H1 precisa de conferência visual em desktop, tablet e celular antes da homologação final. |
 | Performance / Lighthouse | **NÃO TESTADO** | Build aprovado; Lighthouse e medições de campo não foram executados. |
-| Acesso real do Googlebot e respostas públicas atuais | **NÃO REVALIDADOS nesta revisão** | A revisão anterior registrou HTTP 200 para sitemap, robots e páginas prioritárias em produção em 14/10/2026. As alterações atuais ainda não foram publicadas. |
+| Respostas públicas após publicação | **APROVADO** | Home, páginas de ponto/acesso, sitemap e robots retornaram HTTP 200. O title, description, canonical e H1 novos da Home foram confirmados no HTML de produção. Sitemap XML válido com 21 URLs no host `www`; robots declara o sitemap. |
 | Indexação / posição no Google | **NÃO CONFIRMADO** | Requer a propriedade verificada no Google Search Console; nenhum resultado ou ranking é prometido. |
 
 ## Estado de publicação
 
-A última verificação registrada antes desta revisão constatou sitemap, robots e páginas prioritárias servidos em produção com HTTPS e domínio `www`. As alterações feitas agora — incluindo o novo title, description, Open Graph, Twitter Card e H1 da Home — estão somente no checkout local e ainda não foram publicadas no GitHub/Vercel. Portanto, o site público ainda não foi confirmado com estes novos metadados.
+O commit `6de304e` foi enviado à branch `main` do GitHub. A produção em `https://www.correiatecnologia.com.br/` serve a nova Home e os metadados desta revisão. Home, páginas prioritárias, sitemap e robots foram verificados por HTTPS; o sitemap e robots respondem 200. A CLI da Vercel não estava disponível, portanto o ID do deployment não foi consultado; a confirmação de produção foi feita pelas respostas públicas.
 
 ## Etapas que dependem do Google Search Console
 
@@ -48,4 +48,4 @@ A última verificação registrada antes desta revisão constatou sitemap, robot
 
 A verificação DNS depende do acesso ao provedor do domínio; nenhum código TXT foi inventado. Enviar sitemap ou solicitar indexação não garante inclusão, posição ou prazo nos resultados.
 
-**Resultado:** SEO local e técnico preparado no código; lint e build aprovados. **Ainda não apto para homologação final** até validar responsividade visual e comportamento HTTP em produção após publicar.
+**Resultado:** SEO local e técnico atualizado e publicado; lint, build, sitemap, robots e metadados de produção aprovados. **Ainda não apto para homologação final** até validar responsividade visual em desktop, tablet e celular.
