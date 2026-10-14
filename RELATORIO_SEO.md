@@ -3,7 +3,7 @@
 **Atualizado em:** 14/10/2026
 
 **Escopo:** SEO local e técnico solicitado para Salvador, Bahia.
-**Publicação:** nenhuma alteração foi enviada ao GitHub ou publicada na Vercel nesta etapa.
+**Publicação:** commit `cec7a19` enviado à branch `main` do GitHub; produção verificada no domínio oficial em 14/10/2026.
 
 ## Implementado no código
 
@@ -28,17 +28,17 @@
 | H1 e conteúdo indexável | **APROVADO** | Home e novas páginas têm H1; conteúdo das páginas locais está no HTML gerado, sem depender de autenticação ou execução no navegador. |
 | Meta robots | **APROVADO** | Páginas públicas geradas com `index, follow`; preview continua `noindex`. |
 | Dados estruturados | **APROVADO** | HTML contém JSON-LD global e tipos `Service`/`BreadcrumbList` nas páginas locais. |
-| Sitemap | **APROVADO no build local** | XML gerado lista os dois endereços canônicos em `www`. O endpoint público ainda precisa ser conferido após publicação. |
-| Robots | **APROVADO no build local** | Saída permite rastreamento de produção e aponta para `https://www.correiatecnologia.com.br/sitemap.xml`. O endpoint público ainda precisa ser conferido após publicação. |
-| Redirecionamentos | **APROVADO no build local** | Manifesto do Next contém redirecionamento do host apex e rotas antigas para as URLs novas. |
+| Sitemap | **APROVADO em produção** | GET com User-Agent Googlebot: HTTP 200, `application/xml`, XML válido, 21 URLs e nenhuma URL fora do host `www`. As 21 URLs responderam HTTP 200. |
+| Robots | **APROVADO em produção** | GET com User-Agent Googlebot: HTTP 200, `text/plain`, permite rastreamento e anuncia `https://www.correiatecnologia.com.br/sitemap.xml`. |
+| Redirecionamentos | **APROVADO em produção** | HTTP apex, HTTPS apex e HTTP `www` terminam em `https://www.correiatecnologia.com.br/sitemap.xml` com HTTP 200. |
 | Responsividade em navegadores/dispositivos | **NÃO TESTADO nesta alteração** | Não houve mudança de CSS ou layout; é necessária uma rodada visual em celular, tablet e desktop para certificar o comportamento. |
-| HTTP 200 e HTTPS no domínio oficial | **NÃO TESTADO nesta alteração** | O build local não comprova a resposta do deployment nem o certificado/domínios conectados na Vercel. A ferramenta de navegação web não conseguiu acessar os endpoints públicos durante esta execução. |
+| HTTP 200 e HTTPS no domínio oficial | **APROVADO nas rotas verificadas** | Home, sitemap, robots e as duas páginas locais responderam HTTP 200 por HTTPS. Os três acessos de origem HTTP/apex testados chegaram ao host canônico HTTPS `www`. |
 | Lighthouse / performance / acessibilidade | **NÃO TESTADO** | Lighthouse não foi executado nesta etapa. O build reportou 113 kB de First Load JS na Home, sem comparação anterior para afirmar melhora ou regressão. |
 | Indexação no Google | **NÃO CONFIRMADA** | Não há acesso ao Search Console da propriedade. Nenhuma afirmação de indexação ou posição é feita. |
 
 ## Estado publicado
 
-As alterações deste relatório estão apenas no código local. Não foram enviadas ao GitHub nem à Vercel. A última auditoria pública registrada em 13/10/2026 observou conteúdo antigo no domínio oficial; essa observação é anterior às alterações atuais e não confirma o estado público de 14/10/2026. A tentativa de revalidar os endpoints agora não obteve resposta pela ferramenta web. Portanto, não há evidência nesta etapa de que as páginas, sitemap, robots ou redirects novos estejam publicados.
+O commit `cec7a19` foi enviado para `main`. Em 14/10/2026, as respostas públicas de `https://www.correiatecnologia.com.br/`, `/relogio-de-ponto-facial-salvador`, `/controle-de-acesso-facial-salvador`, `/sitemap.xml` e `/robots.txt` corresponderam às alterações: páginas indexáveis com canonical `www`, sitemap válido no host `www` e robots anunciando o sitemap. Isso confirma que a versão atual está servida em produção. A CLI e o vínculo local da Vercel não estavam disponíveis, então não foi possível registrar ID ou duração do deployment; a verificação foi feita pelas respostas públicas.
 
 ## Etapas do Google Search Console
 
@@ -48,4 +48,4 @@ As alterações deste relatório estão apenas no código local. Não foram envi
 4. Depois da verificação, enviar `https://www.correiatecnologia.com.br/sitemap.xml` e inspecionar as URLs da Home e das duas páginas locais.
 5. Acompanhar os relatórios de rastreamento e indexação. O envio não garante inclusão, prazo ou posição nos resultados.
 
-**Resultado desta etapa:** código preparado para SEO local e indexação técnica, com build e TypeScript aprovados. A publicação, validação pública, inspeção responsiva e verificação no Google ainda são pendências.
+**Resultado desta etapa:** correção publicada e endpoints SEO validados em produção. TypeScript e build aprovados. Inspeção visual responsiva, Lighthouse e confirmação de indexação continuam pendentes; a indexação depende do Google Search Console.
