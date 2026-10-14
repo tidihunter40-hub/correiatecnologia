@@ -42,7 +42,8 @@ function MetricIcon({ kind }: { kind: string }) {
 function EquipmentFeatureIcon({ index }: { index: number }) {
   if (index === 0) return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5 17 5v5c0 4.4-2.9 7.3-7 8.8C5.9 17.3 3 14.4 3 10V5l7-2.5Z"/><path d="m7 10 2 2 4-4"/></svg>;
   if (index === 1) return <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 5.5v4.8l3 1.8"/></svg>;
-  return <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="6" cy="10" r="2.5"/><circle cx="14" cy="10" r="2.5"/><path d="M8.5 10h3M6 7.5v-3h8v3m-8 5v3h8v-3"/></svg>;
+  if (index === 2) return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 2 4 0 .7 2.2 1.5.7 2-.8 2 3.5-1.7 1.5v1.7l1.7 1.5-2 3.5-2-.8-1.5.7L12 18H8l-.7-2.2-1.5-.7-2 .8-2-3.5 1.7-1.5V9.2L3.8 7.7l2-.8 1.5-.7L8 2Z"/><circle cx="10" cy="10" r="2.4"/></svg>;
+  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 17h14M5 14v-4h3v4m2 0V7h3v7m2 0V3h3v11"/></svg>;
 }
 
 export default function Home() {
@@ -119,7 +120,7 @@ export default function Home() {
         </div>
         <div className="featured-equipment-grid">
           {featuredEquipment.map((item) => <article className="featured-equipment-card" key={item.title}>
-            <div className="featured-equipment-image"><Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw" /></div>
+            <div className="featured-equipment-image"><Image src={item.image} alt={item.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw" /></div>
             <div className="featured-equipment-content">
               <span className="featured-equipment-category">{item.kind}</span>
               <h3>{item.title}</h3>

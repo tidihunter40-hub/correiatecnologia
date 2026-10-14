@@ -46,10 +46,10 @@ export const segments = [
 ];
 
 export const products = [
-  { title: 'Terminal de reconhecimento facial', kind: 'Controle de acesso', description: 'Terminal para identificação facial em ambientes corporativos e de circulação controlada.', features: ['Identificação facial', 'Integração conforme projeto', 'Modelos e especificações sob consulta'], applications: 'Empresas, condomínios, clínicas e academias', icon: '◉', image: '/images/acesso-escritorio.png', alt: 'Pessoa utilizando leitor facial em entrada corporativa, imagem ilustrativa' },
-  { title: 'Relógio eletrônico de ponto', kind: 'Gestão de jornada', description: 'Equipamentos para registro de ponto e suporte às rotinas de jornada de trabalho.', features: ['Opções biométricas e outras modalidades', 'Compatibilidade varia por modelo', 'Consulte disponibilidade'], applications: 'Empresas, comércios, escolas e clínicas', icon: '◷', image: '/images/relogio-ponto-foto.webp', alt: 'Relógio eletrônico de ponto em close, com tela e leitor biométrico' },
-  { title: 'Catraca e controle de passagem', kind: 'Automação de entradas', description: 'Equipamentos para organizar passagens em entradas com fluxo definido.', features: ['Avaliação de fluxo e espaço', 'Possibilidade de integração', 'Configuração sob consulta'], applications: 'Academias, empresas, escolas e condomínios', icon: '↗', image: '/images/acesso-catraca.png', alt: 'Instalação de controle de acesso em entrada com catracas' },
-  { title: 'Acessórios e suprimentos para ponto', kind: 'Acessórios', description: 'Itens de reposição e consumíveis para equipamentos de controle de ponto.', features: ['Bobinas, cartões e acessórios conforme disponibilidade', 'Compatibilidade por modelo', 'Consulte o item necessário'], applications: 'Empresas e operações com relógio de ponto', icon: '▤', image: '/images/equipamentos/suprimentos-ponto.webp', alt: 'Bobina de papel térmico e cartões genéricos para equipamentos de ponto, imagem ilustrativa' },
+  { title: 'Terminal de reconhecimento facial', kind: 'Controle de acesso', description: 'Terminal para identificação facial em ambientes corporativos e de circulação controlada.', features: ['Identificação facial', 'Integração com seu projeto', 'Modelos e especificações sob consulta'], applications: 'Empresas, condomínios, clínicas e academias', icon: '◉', image: '/images/catalog/terminal-reconhecimento-facial.webp', alt: 'Terminal de reconhecimento facial instalado em uma entrada corporativa; imagem da referência enviada pelo cliente' },
+  { title: 'Relógio eletrônico de ponto', kind: 'Gestão de jornada', description: 'Equipamentos para registro de ponto e suporte às rotinas da jornada de trabalho.', features: ['Opções biométricas e cartão', 'Compatibilidade varia por modelo', 'Consulte o modelo ideal'], applications: 'Empresas, comércios, escolas e clínicas', icon: '◷', image: '/images/catalog/relogio-eletronico-ponto.webp', alt: 'Relógio de ponto biométrico em ambiente de escritório; imagem da referência enviada pelo cliente' },
+  { title: 'Catraca e controle de passagem', kind: 'Automação de entradas', description: 'Equipamentos para organizar passagens em entradas com fluxo definido.', features: ['Alta resistência e fluxo seguro', 'Possibilidade de integração', 'Configurações sob consulta'], applications: 'Academias, empresas, escolas e condomínios', icon: '↗', image: '/images/catalog/catraca-controle-passagem.webp', alt: 'Catracas de aço inox em uma entrada corporativa; imagem da referência enviada pelo cliente' },
+  { title: 'Acessórios e suprimentos para ponto', kind: 'Acessórios', description: 'Itens de reposição e consumo para equipamentos de controle de ponto.', features: ['Bobinas e cartões compatíveis', 'Compatibilidade por modelo', 'Consulte o item necessário'], applications: 'Empresas e operações com relógio de ponto', icon: '▤', image: '/images/catalog/acessorios-suprimentos-ponto.webp', alt: 'Bobinas, cartões, pulseiras e acessórios para controle de ponto; imagem da referência enviada pelo cliente' },
 ];
 
 export const featuredEquipment = [
@@ -57,27 +57,27 @@ export const featuredEquipment = [
     title: 'Terminal de Reconhecimento Facial',
     kind: 'Controle de acesso',
     description: 'Tecnologia para identificação facial e controle de entrada e saída em empresas, condomínios e estabelecimentos.',
-    image: '/images/reference/servico-venda.webp',
-    alt: 'Composição ilustrativa de equipamentos para controle de acesso',
-    features: ['Reconhecimento facial', 'Controle de acesso', 'Tecnologia moderna'],
+    image: '/images/equipamentos/destaque-reconhecimento-facial.webp',
+    alt: 'Pessoa utilizando terminal de reconhecimento facial instalado em uma entrada corporativa',
+    features: ['Reconhecimento facial', 'Controle de acesso', 'Tecnologia moderna', 'Mais segurança'],
     quote: 'Olá! Conheci a Correia Tecnologia pelo site e gostaria de solicitar um orçamento para um terminal de reconhecimento facial.',
   },
   {
     title: 'Relógio de Ponto Biométrico',
     kind: 'Gestão de jornada',
-    description: 'Soluções para registro de ponto e organização da jornada de trabalho dos colaboradores.',
-    image: '/images/relogio-ponto-foto.webp',
-    alt: 'Relógio eletrônico de ponto biométrico em close',
-    features: ['Registro de ponto', 'Leitura biométrica', 'Gestão de jornada'],
+    description: 'Soluções para registro de ponto e organização da jornada de trabalho, com mais precisão e confiabilidade.',
+    image: '/images/equipamentos/destaque-relogio-ponto.webp',
+    alt: 'Funcionário registrando o ponto em relógio biométrico com tela e leitor digital',
+    features: ['Registro de ponto', 'Leitura biométrica', 'Gestão de jornada', 'Relatórios completos'],
     quote: 'Olá! Conheci a Correia Tecnologia pelo site e gostaria de solicitar um orçamento para um relógio de ponto.',
   },
   {
     title: 'Catracas e Controle de Acesso',
     kind: 'Automação de entradas',
     description: 'Equipamentos para organizar e controlar a circulação de pessoas em ambientes corporativos e comerciais.',
-    image: '/images/acesso-catraca.png',
-    alt: 'Instalação de controle de acesso em uma entrada corporativa',
-    features: ['Controle de passagem', 'Automação de entradas', 'Segurança e praticidade'],
+    image: '/images/equipamentos/destaque-catracas.webp',
+    alt: 'Catracas eletrônicas com leitor de acesso em uma entrada corporativa',
+    features: ['Controle de passagem', 'Automação de entradas', 'Segurança e praticidade', 'Integração com sistemas'],
     quote: 'Olá! Conheci a Correia Tecnologia pelo site e gostaria de solicitar um orçamento para catracas e controle de acesso.',
   },
 ];

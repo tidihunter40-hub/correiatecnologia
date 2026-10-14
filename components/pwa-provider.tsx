@@ -11,6 +11,7 @@ type PWAContextValue = {
   canInstall: boolean;
   isInstalled: boolean;
   isIOS: boolean;
+  isAndroid: boolean;
   isSafari: boolean;
   promptInstall: () => Promise<void>;
   updateAvailable: boolean;
@@ -42,6 +43,7 @@ export function PWAProvider({ children }: { children: ReactNode }) {
   const [installPrompt, setInstallPrompt] = useState<InstallPrompt | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const [isAndroid, setIsAndroid] = useState(false);
   const [isSafari, setIsSafari] = useState(false);
   const [updateRegistration, setUpdateRegistration] = useState<ServiceWorkerRegistration | null>(null);
   const [updateAvailable, setUpdateAvailable] = useState(false);
@@ -53,6 +55,7 @@ export function PWAProvider({ children }: { children: ReactNode }) {
     const safari = /Safari/i.test(navigator.userAgent) && !/CriOS|FxiOS|EdgiOS|OPiOS/i.test(navigator.userAgent);
     setIsInstalled(standalone);
     setIsIOS(appleDevice);
+    setIsAndroid(/Android/i.test(navigator.userAgent));
     setIsSafari(safari);
 
     const handleInstallPrompt = (event: Event) => {
@@ -115,10 +118,18 @@ export function PWAProvider({ children }: { children: ReactNode }) {
   }
 
   const value = useMemo<PWAContextValue>(() => ({
-    canInstall: Boolean(installPrompt), isInstalled, isIOS, isSafari, promptInstall,
+    canInstall: Boolean(installPrompt), isInstalled, isIOS, isAndroid, isSafari, promptInstall,
     updateAvailable: updateAvailable && !updateDismissed, updateApp,
     dismissUpdate: () => setUpdateDismissed(true),
-  }), [installPrompt, isInstalled, isIOS, isSafari, updateAvailable, updateDismissed, updateRegistration]);
+  }), [installPrompt, isInstalled, isIOS, isAndroid, isSafari, updateAvailable, updateDismissed, updateRegistration]);
 
-  return <PWAContext.Provider value={value}>{children}{value.updateAvailable && <div className="pwa-update-banner" role="status"><span>Uma nova versão está disponível.</span><div><button type="button" onClick={value.dismissUpdate}>Depois</button><button className="pwa-update-action" type="button" onClick={value.updateApp}>Atualizar</button></div></div>}</PWAContext.Provider>;
+  return <PWAContext.Provider value={value}>{children}<DesktopInstallCTA />{value.updateAvailable && <div className="pwa-update-banner" role="status"><span>Uma nova versão está disponível.</span><div><button type="button" onClick={value.dismissUpdate}>Depois</button><button className="pwa-update-action" type="button" onClick={value.updateApp}>Atualizar</button></div></div>}</PWAContext.Provider>;
+}
+
+function DesktopInstallCTA() {
+  const { canInstall, isInstalled, promptInstall } = usePWA();
+  if (!canInstall || isInstalled) return null;
+  return <button className="desktop-install-cta" type="button" onClick={() => void promptInstall()} aria-label="Instalar Correia Tecnologia como aplicativo">
+    <span aria-hidden="true">↓</span> Instalar aplicativo
+  </button>;
 }

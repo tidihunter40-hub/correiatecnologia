@@ -29,10 +29,9 @@ function SolutionIcon({ kind }: { kind: string }) {
 
 export function SolutionCard({ item }: { item: SolutionCardItem }) {
   const href = solutionPath(item.slug);
-  const containImage = ['face', 'box', 'calendar'].includes(item.icon);
   return <article className="solution-feature-card">
-    <div className={`solution-card-image ${containImage ? 'solution-card-image-contain' : ''}`}>
-      <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, (max-width: 1050px) 50vw, 33vw" style={{ objectFit: containImage ? 'contain' : 'cover' }} />
+    <div className="solution-card-image">
+      <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, (max-width: 1050px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
     </div>
     <div className="solution-card-content">
       <div className="solution-card-category"><span className="solution-card-icon"><SolutionIcon kind={item.icon} /></span><span>{item.category}</span></div>
@@ -47,5 +46,26 @@ export function SolutionCard({ item }: { item: SolutionCardItem }) {
 }
 
 export function ProductCard({ item }: { item: { title: string; kind: string; description: string; features: string[]; applications: string; icon: string; image?: string; alt?: string } }) {
-  return <article className="product-card"><div className={`product-visual ${item.image ? 'product-photo' : 'product-image-pending'}`}><span className="product-pill">{item.kind}</span>{item.image ? <Image src={item.image} alt={item.alt || item.title} fill sizes="(max-width: 760px) 100vw, 50vw" style={{ objectFit: 'cover' }} /> : <span className="product-image-note">Foto do item disponível sob consulta</span>}{item.image && <span className="product-caption">Imagem do equipamento ou da instalação</span>}</div><div className="product-info"><h3>{item.title}</h3><p>{item.description}</p><strong>Características</strong><ul>{item.features.map((f) => <li key={f}>{f}</li>)}</ul><strong>Aplicações</strong><p className="application">{item.applications}</p><a className="button button-outline" href={whatsappLink(`Olá! Gostaria de um orçamento para: ${item.title}.`)} target="_blank" rel="noreferrer">Pedir orçamento <span aria-hidden="true">↗</span></a></div></article>;
+  return <article className="product-card">
+    <div className="product-visual">
+      {item.image && <Image src={item.image} alt={item.alt || item.title} fill sizes="(max-width: 900px) 100vw, 50vw" quality={88} />}
+    </div>
+    <div className="product-info">
+      <h3>{item.title}</h3>
+      <p className="product-description">{item.description}</p>
+      <div className="product-details">
+        <section aria-label={`Características de ${item.title}`}>
+          <h4>Características</h4>
+          <ul>{item.features.map((feature) => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
+        </section>
+        <section className="product-applications" aria-label={`Aplicações de ${item.title}`}>
+          <h4>Aplicações</h4>
+          <p>{item.applications}</p>
+        </section>
+      </div>
+      <a className="button button-outline" href={whatsappLink(`Olá! Gostaria de um orçamento para: ${item.title}.`)} target="_blank" rel="noreferrer">
+        Pedir orçamento <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </article>;
 }

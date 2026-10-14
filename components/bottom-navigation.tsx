@@ -44,16 +44,20 @@ function isRouteActive(pathname: string, href: string) {
 }
 
 function InstallPWAButton() {
-  const { canInstall, isInstalled, isIOS, isSafari, promptInstall } = usePWA();
+  const { canInstall, isInstalled, isIOS, isAndroid, isSafari, promptInstall } = usePWA();
   const [showInstructions, setShowInstructions] = useState(false);
   if (isInstalled) return <p className="install-status" role="status">Correia já está instalada neste dispositivo.</p>;
   if (canInstall) return <button className="install-pwa-button" type="button" onClick={() => void promptInstall()}><span className="install-pwa-icon" aria-hidden="true">↓</span><span><strong>Instalar aplicativo</strong><small>Adicionar Correia à tela inicial</small></span><span className="install-pwa-arrow" aria-hidden="true">→</span></button>;
-  if (!isIOS && !isSafari) return null;
-  const title = isIOS ? 'Como instalar no iPhone ou iPad' : 'Como instalar no Mac';
+  const title = isIOS ? 'Como instalar no iPhone ou iPad' : isAndroid ? 'Como instalar no Android' : isSafari ? 'Como instalar no Mac' : 'Como instalar no Chrome ou Edge';
+  const subtitle = isIOS || isAndroid ? 'Instruções para adicionar à tela inicial' : isSafari ? 'Instruções para adicionar ao Dock' : 'Instruções de instalação pelo navegador';
   const instructions = isIOS
     ? isSafari ? 'No Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.' : 'Abra este site no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.'
-    : 'No Safari para Mac, abra o menu Arquivo e escolha “Adicionar ao Dock”.';
-  return <div className="ios-install-block"><button className="install-pwa-button" type="button" aria-expanded={showInstructions} onClick={() => setShowInstructions((open) => !open)}><span className="install-pwa-icon" aria-hidden="true">＋</span><span><strong>{title}</strong><small>{isIOS ? 'Instruções para adicionar à tela inicial' : 'Instruções para adicionar ao Dock'}</small></span><span className="install-pwa-arrow" aria-hidden="true">{showInstructions ? '−' : '→'}</span></button>{showInstructions && <p className="ios-install-help">{instructions}</p>}</div>;
+    : isAndroid
+      ? 'No Chrome, abra o menu ⋮ e escolha “Instalar app” ou “Adicionar à tela inicial”. O nome da opção pode variar conforme o navegador.'
+      : isSafari
+        ? 'No Safari para Mac, abra o menu Arquivo e escolha “Adicionar ao Dock”.'
+        : 'No Chrome ou Edge, use o ícone Instalar na barra de endereço ou a opção de instalação no menu do navegador.';
+  return <div className="ios-install-block"><button className="install-pwa-button" type="button" aria-expanded={showInstructions} onClick={() => setShowInstructions((open) => !open)}><span className="install-pwa-icon" aria-hidden="true">＋</span><span><strong>{title}</strong><small>{subtitle}</small></span><span className="install-pwa-arrow" aria-hidden="true">{showInstructions ? '−' : '→'}</span></button>{showInstructions && <p className="ios-install-help">{instructions}</p>}</div>;
 }
 
 function MoreMenuSheet({ open, onClose, pathname, triggerRef }: { open: boolean; onClose: () => void; pathname: string; triggerRef: React.RefObject<HTMLButtonElement | null> }) {
