@@ -19,8 +19,8 @@
 .reference-container{width:min(1400px,calc(100% - 136px));margin-inline:auto}
 .reference-header{height:68px;background:#fff;border:0;color:#081b47}
 .reference-nav-wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.reference-brand{display:flex;align-items:center;flex:0 0 205px;height:48px}
-.reference-brand img{display:block;width:205px;height:48px;object-fit:contain}
+.reference-brand{display:flex;align-items:center;flex:0 0 205px;height:auto}
+.reference-brand img{display:block;width:205px;height:auto;object-fit:contain}
 .reference-nav{display:flex;align-items:center;justify-content:center;gap:34px;color:#071b49;font-size:13px;font-weight:500;white-space:nowrap}
 .reference-nav>a,.reference-nav-dropdown>a{transition:color .18s ease}
 .reference-nav>a:hover,.reference-nav>a[aria-current=page],.reference-nav-dropdown>a:hover{color:#075ed6}
