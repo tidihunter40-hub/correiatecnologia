@@ -14,8 +14,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/servicos/controle-de-acesso-facial', destination: '/solucoes/controle-de-acesso-facial', statusCode: 301 },
-      { source: '/servicos/relogios-de-ponto', destination: '/solucoes/relogios-de-ponto', statusCode: 301 },
+      { source: '/:path*', has: [{ type: 'host', value: 'correiatecnologia.com.br' }], destination: 'https://www.correiatecnologia.com.br/:path*', permanent: true },
+      { source: '/servicos/controle-de-acesso-facial', destination: '/controle-de-acesso-facial-salvador', statusCode: 301 },
+      { source: '/servicos/relogios-de-ponto', destination: '/relogio-de-ponto-facial-salvador', statusCode: 301 },
+      { source: '/solucoes/controle-de-acesso-facial', destination: '/controle-de-acesso-facial-salvador', statusCode: 301 },
+      { source: '/solucoes/relogios-de-ponto', destination: '/relogio-de-ponto-facial-salvador', statusCode: 301 },
       { source: '/servicos/automacao-de-entradas', destination: '/solucoes/automacao-de-entradas', statusCode: 301 },
       { source: '/servicos/venda-de-equipamentos', destination: '/solucoes/venda-de-equipamentos', statusCode: 301 },
       { source: '/servicos/locacao-de-equipamentos', destination: '/solucoes/locacao-de-equipamentos', statusCode: 301 },

@@ -1,43 +1,51 @@
 # Relatório SEO — Correia Tecnologia e Automações
 
-**Atualizado em:** 13/10/2026
-**Escopo:** Etapa 4 — SEO técnico e local. **Nenhuma publicação, alteração DNS ou cadastro em serviço externo foi realizado.** O design e as fotografias aprovadas foram preservados.
+**Atualizado em:** 14/10/2026
 
-## O que foi preparado no código
+**Escopo:** SEO local e técnico solicitado para Salvador, Bahia.
+**Publicação:** nenhuma alteração foi enviada ao GitHub ou publicada na Vercel nesta etapa.
 
-- Home com title exato **“Correia Tecnologia | Controle de Acesso em Salvador”**, meta description local, canonical, Open Graph e imagem de compartilhamento.
-- Titles, descriptions, canonicals e Open Graph próprios para páginas públicas indexáveis; páginas de solução e segmento também recebem metadados específicos por rota. `offline` continua intencionalmente `noindex` e fora do sitemap.
-- Seis páginas públicas em `/solucoes/…`, incluindo controle de acesso facial, relógio de ponto facial, automação de entradas, venda, locação e instalação/suporte. O conteúdo distingue o serviço, explica como é avaliado, indica aplicações e benefícios, relaciona categorias de equipamentos e responde dúvidas sem inventar especificações.
-- A página `/solucoes/relogios-de-ponto` contém conteúdo local sobre reconhecimento facial, uso empresarial, venda, locação, instalação, suporte e orçamento em Salvador.
-- Rotas antigas de detalhe `/servicos/…` redirecionam permanentemente com status **301** para as novas rotas. Links internos e sitemap usam os endereços canônicos `/solucoes/…`.
-- `/sitemap.xml` lista 21 URLs públicas: páginas institucionais, seis soluções e seis segmentos. Não lista páginas de detalhe antigas nem a página offline.
-- `/robots.txt` permite rastrear a produção e aponta para `https://correiatecnologia.com.br/sitemap.xml`. Deploy Previews continuam bloqueados para indexação.
-- Dados JSON-LD: `WebSite`, `Organization` e `LocalBusiness` no layout; `Service` e `BreadcrumbList` nas páginas de solução. Endereço e telefone usam os dados já confirmados no site. Não foram adicionados preços, avaliações, estrelas, clientes, certificações, coordenadas ou produtos estruturados sem dados de modelo suficientes.
-- O PWA mantém páginas públicas em estratégia network-first. O Service Worker não exige login, não substitui HTML conectado pela página offline e usa o fallback offline somente quando a rede falha.
-- Instruções para Search Console e Perfil da Empresa no Google adicionadas ao README.
+## Implementado no código
+
+- Home com title **“Correia Tecnologia e Automações | Ponto e Acesso Facial em Salvador”**, description solicitada, canonical, Open Graph e Twitter Card.
+- Base canônica atualizada para `https://www.correiatecnologia.com.br/`. Links canônicos, sitemap, robots e identificadores do Schema usam o host `www`.
+- Redirecionamento permanente do host `correiatecnologia.com.br` para `https://www.correiatecnologia.com.br`, configurado no Next.js. A Vercel ainda precisa ter os dois domínios conectados e HTTPS ativo para que o redirecionamento e o certificado funcionem em produção.
+- Página `/relogio-de-ponto-facial-salvador` com title e description próprios, H1 local, conteúdo original sobre reconhecimento facial, uso empresarial, venda e locação, instalação, suporte e contato em Salvador. Inclui imagem com alt, links internos, CTA por WhatsApp, `Service` e `BreadcrumbList` em JSON-LD.
+- Página `/controle-de-acesso-facial-salvador` com metadados próprios, H1 local, explicação de reconhecimento facial e controle biométrico, aplicações em empresas e condomínios, benefícios, instalação, suporte, observação sobre tratamento de dados biométricos, links internos e CTA. Inclui imagem com alt e JSON-LD `Service` e `BreadcrumbList`.
+- Endereços anteriores `/solucoes/controle-de-acesso-facial`, `/solucoes/relogios-de-ponto` e aliases correspondentes em `/servicos/` redirecionam permanentemente para as novas URLs.
+- Sitemap dinâmico inclui as duas páginas novas, páginas institucionais, soluções e segmentos. Robots permite rastreamento em produção, anuncia o sitemap no domínio `www` e continua bloqueando previews da Vercel.
+- O layout raiz publica `WebSite`, `Organization` e `LocalBusiness` com nome, telefone e endereço já presentes no código do site. Não foram inventados token de Search Console, avaliação, certificação, parceiro, coordenada ou informação comercial.
+- As mudanças não alteraram CSS, layout, cores, imagens ou componentes visuais. Os textos das novas páginas usam componentes e estilos existentes; o conteúdo de cada rota é renderizado estaticamente pelo Next.js.
 
 ## Verificações locais
 
-- `npm run lint` — aprovado (TypeScript).
-- `npm ci` e `npm run build` — aprovados em cópia de validação isolada fora do OneDrive; a compilação final gerou 33 rotas. O working tree original foi preservado. Essa aprovação valida o código local, não o deployment da Vercel.
-- Metadados/HTML do build final foram revisados por código e execução em Chrome no domínio `vercel.app`: a rota de relógios mostra título “Relógio de Ponto Facial em Salvador | Correia Tecnologia”, H1 esperado e conteúdo local sobre identificação, aplicação, venda/locação e instalação/suporte. O build local gerou as rotas; status HTTP e canonical/headers públicos não foram lidos.
-- Sitemap gerado contém seis soluções canônicas; robots anuncia o sitemap e permite rastreamento. O código de sitemap e robots permaneceu igual após essa inspeção.
-- Manifest de rotas Next.js da primeira compilação confirma seis redirecionamentos 301 de `/servicos/…` para `/solucoes/…`.
-- Canonicals apontam para o domínio oficial; as imagens Open Graph declaradas referenciam arquivos existentes no projeto.
-- Teste HTTP pelo terminal local foi bloqueado pelas permissões de socket localhost. A navegação pública no browser confirmou conteúdo visual de páginas do site, mas não permitiu ler status HTTP, canonical, headers ou XML. Em `https://correiatecnologia.com.br/robots.txt` e `/sitemap.xml`, o navegador mostrou conteúdo do site antigo em vez de XML/robots legíveis; validar por uma ferramenta de rede autorizada antes de declarar esses endpoints publicados.
-- Lighthouse não está instalado/disponível neste ambiente; nenhuma pontuação de desempenho, SEO, acessibilidade ou boas práticas foi estimada.
+| Item | Status | Evidência |
+|---|---|---|
+| TypeScript (`npm run lint`) | **APROVADO** | `tsc --noEmit` terminou com código 0. |
+| Build de produção | **APROVADO** | `npm run build` terminou com código 0 e gerou 34 rotas estáticas/SSG, incluindo as duas páginas locais. O build foi direcionado temporariamente a `.next-validation` para evitar arquivos de build reparse do OneDrive; essa configuração temporária foi removida do código. |
+| Title, description e canonical das páginas alvo | **APROVADO** | HTML pré-renderizado contém os titles esperados, descriptions, canonicals e o domínio `www`. O canonical da Home é serializado sem a barra final, equivalente à URL raiz. |
+| Open Graph e Twitter Cards | **APROVADO** | Metadados das três páginas foram encontrados no HTML pré-renderizado. |
+| H1 e conteúdo indexável | **APROVADO** | Home e novas páginas têm H1; conteúdo das páginas locais está no HTML gerado, sem depender de autenticação ou execução no navegador. |
+| Meta robots | **APROVADO** | Páginas públicas geradas com `index, follow`; preview continua `noindex`. |
+| Dados estruturados | **APROVADO** | HTML contém JSON-LD global e tipos `Service`/`BreadcrumbList` nas páginas locais. |
+| Sitemap | **APROVADO no build local** | XML gerado lista os dois endereços canônicos em `www`. O endpoint público ainda precisa ser conferido após publicação. |
+| Robots | **APROVADO no build local** | Saída permite rastreamento de produção e aponta para `https://www.correiatecnologia.com.br/sitemap.xml`. O endpoint público ainda precisa ser conferido após publicação. |
+| Redirecionamentos | **APROVADO no build local** | Manifesto do Next contém redirecionamento do host apex e rotas antigas para as URLs novas. |
+| Responsividade em navegadores/dispositivos | **NÃO TESTADO nesta alteração** | Não houve mudança de CSS ou layout; é necessária uma rodada visual em celular, tablet e desktop para certificar o comportamento. |
+| HTTP 200 e HTTPS no domínio oficial | **NÃO TESTADO nesta alteração** | O build local não comprova a resposta do deployment nem o certificado/domínios conectados na Vercel. A ferramenta de navegação web não conseguiu acessar os endpoints públicos durante esta execução. |
+| Lighthouse / performance / acessibilidade | **NÃO TESTADO** | Lighthouse não foi executado nesta etapa. O build reportou 113 kB de First Load JS na Home, sem comparação anterior para afirmar melhora ou regressão. |
+| Indexação no Google | **NÃO CONFIRMADA** | Não há acesso ao Search Console da propriedade. Nenhuma afirmação de indexação ou posição é feita. |
 
-## Estado da produção
+## Estado publicado
 
-Na auditoria final em 13/10/2026, Chrome abriu `https://correiatecnologia.com.br/` com título “Home - Correia Tecnologia e Automações” e conteúdo do site anterior. A rota `/solucoes/relogios-de-ponto/` no domínio oficial também mostrou a experiência antiga, sem a página SEO implementada neste código. Já `https://correiatecnologia.vercel.app/solucoes/relogios-de-ponto` mostrou o conteúdo novo e o título esperado, porém ainda exibe um CEP removido do código local final. Isso evidencia versões diferentes; não comprova qual projeto/deployment controla o domínio, nem status HTTP. Não foi publicado nem alterado DNS. Não há confirmação de indexação.
+As alterações deste relatório estão apenas no código local. Não foram enviadas ao GitHub nem à Vercel. A última auditoria pública registrada em 13/10/2026 observou conteúdo antigo no domínio oficial; essa observação é anterior às alterações atuais e não confirma o estado público de 14/10/2026. A tentativa de revalidar os endpoints agora não obteve resposta pela ferramenta web. Portanto, não há evidência nesta etapa de que as páginas, sitemap, robots ou redirects novos estejam publicados.
 
-O domínio e os redirects HTTP/HTTPS e `www`/apex dependem da configuração de Domains/DNS do projeto Vercel. O código define canonicals no domínio oficial e redirects 301 para as URLs antigas de serviços; não altera DNS nem associa domínios.
+## Etapas do Google Search Console
 
-## Próximas etapas do proprietário
+1. Publicar o código e confirmar que `www.correiatecnologia.com.br` e `correiatecnologia.com.br` estão conectados ao projeto correto da Vercel, com HTTPS funcional.
+2. No Search Console, adicionar a propriedade **Domínio** `correiatecnologia.com.br`.
+3. Copiar o registro TXT gerado pelo próprio Google e adicioná-lo ao DNS do domínio. A validação depende de acesso ao provedor DNS; nenhum código foi inventado.
+4. Depois da verificação, enviar `https://www.correiatecnologia.com.br/sitemap.xml` e inspecionar as URLs da Home e das duas páginas locais.
+5. Acompanhar os relatórios de rastreamento e indexação. O envio não garante inclusão, prazo ou posição nos resultados.
 
-1. Depois de autorizar e concluir a publicação, confirmar no domínio oficial os status HTTP 200 das páginas, `/robots.txt` e `/sitemap.xml`; verificar também o redirecionamento de HTTP e `www` para `https://correiatecnologia.com.br`.
-2. No Google Search Console, adicionar a propriedade de domínio `correiatecnologia.com.br` e publicar o registro TXT fornecido pelo Google no provedor DNS. Isso requer acesso e autorização do proprietário. Alternativamente, uma propriedade de prefixo de URL pode usar o token meta real do Google via `GOOGLE_SITE_VERIFICATION` no ambiente de produção; nenhum token foi inventado ou armazenado.
-3. Após verificar a propriedade, enviar `https://correiatecnologia.com.br/sitemap.xml`, inspecionar `/` e `/solucoes/relogios-de-ponto` e solicitar rastreamento. Acompanhar relatórios de cobertura e erros. Esses pedidos não garantem indexação, prazo ou posição.
-4. Antes de editar o Perfil da Empresa no Google, procurar um perfil existente por nome, telefone e endereço para evitar duplicatas. O proprietário deve confirmar os dados e categoria, reivindicar/verificar o perfil e então informar o site oficial. Nenhum cadastro ou edição externa foi feito.
-
-**Resultado:** código local preparado para rastreamento e indexação técnica, aguardando publicação autorizada e verificação de domínio no Search Console. Não há promessa de posição ou afirmação de indexação.
+**Resultado desta etapa:** código preparado para SEO local e indexação técnica, com build e TypeScript aprovados. A publicação, validação pública, inspeção responsiva e verificação no Google ainda são pendências.

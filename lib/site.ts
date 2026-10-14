@@ -1,8 +1,8 @@
-export const siteUrl = 'https://correiatecnologia.com.br';
+export const siteUrl = 'https://www.correiatecnologia.com.br';
 
 export const solutionPaths: Record<string, string> = {
-  'controle-de-acesso-facial': '/solucoes/controle-de-acesso-facial',
-  'relogios-de-ponto': '/solucoes/relogios-de-ponto',
+  'controle-de-acesso-facial': '/controle-de-acesso-facial-salvador',
+  'relogios-de-ponto': '/relogio-de-ponto-facial-salvador',
   'automacao-de-entradas': '/solucoes/automacao-de-entradas',
   'venda-de-equipamentos': '/solucoes/venda-de-equipamentos',
   'locacao-de-equipamentos': '/solucoes/locacao-de-equipamentos',

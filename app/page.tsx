@@ -5,10 +5,11 @@ import { VideoShowcase } from '../components/video-showcase';
 import { featuredEquipment, segments, services, solutionPath, whatsappLink } from '../lib/site';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Correia Tecnologia | Controle de Acesso em Salvador' },
-  description: 'Controle de acesso facial, relógios de ponto e automação em Salvador. Conheça as soluções da Correia Tecnologia e solicite seu orçamento.',
+  title: { absolute: 'Correia Tecnologia e Automações | Ponto e Acesso Facial em Salvador' },
+  description: 'Conheça a Correia Tecnologia e Automações. Soluções em relógio de ponto facial, controle de acesso e reconhecimento facial para empresas em Salvador e região.',
   alternates: { canonical: '/' },
-  openGraph: { url: '/', title: 'Correia Tecnologia | Controle de Acesso em Salvador', description: 'Soluções em reconhecimento facial, controle de acesso, relógios de ponto e automação em Salvador e Bahia.', images: [{ url: '/images/heroes/controle-acesso-facial.webp', width: 1672, height: 941, alt: 'Visitante usando terminal de reconhecimento facial em uma entrada corporativa' }] },
+  openGraph: { url: '/', title: 'Correia Tecnologia e Automações | Ponto e Acesso Facial em Salvador', description: 'Conheça a Correia Tecnologia e Automações. Soluções em relógio de ponto facial, controle de acesso e reconhecimento facial para empresas em Salvador e região.', images: [{ url: '/images/heroes/controle-acesso-facial.webp', width: 1672, height: 941, alt: 'Visitante usando terminal de reconhecimento facial em uma entrada corporativa' }] },
+  twitter: { card: 'summary_large_image', title: 'Correia Tecnologia e Automações | Ponto e Acesso Facial em Salvador', description: 'Conheça a Correia Tecnologia e Automações. Soluções em relógio de ponto facial, controle de acesso e reconhecimento facial para empresas em Salvador e região.', images: ['/images/heroes/controle-acesso-facial.webp'] },
 };
 
 const homeServices = [
@@ -105,7 +106,7 @@ export default function Home() {
       duration="prévia de 20 s · vídeo completo 1 min 18 s"
       highlights={['Registro de jornada com reconhecimento facial', 'Experiência prática para a rotina da equipe', 'Venda, locação e instalação sob consulta']}
       primaryLabel="Conhecer relógios de ponto"
-      primaryHref="/solucoes/relogios-de-ponto"
+      primaryHref={solutionPath('relogios-de-ponto')}
       quoteMessage="Olá! Gostaria de solicitar um orçamento para relógio de ponto DIXI Facial."
     />
 

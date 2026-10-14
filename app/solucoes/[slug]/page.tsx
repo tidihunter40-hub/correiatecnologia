@@ -5,11 +5,11 @@ import { SubpageHero } from '../../../components/subpage-hero';
 import { serviceSeoContent } from '../../../lib/service-seo';
 import { segments, services, siteUrl, solutionPath, whatsappLink } from '../../../lib/site';
 
-const serviceByPathSlug = (slug: string) => services.find((service) => solutionPath(service.slug) === `/solucoes/${slug}`);
+const serviceByPathSlug = (slug: string) => services.find((service) => service.slug !== 'controle-de-acesso-facial' && service.slug !== 'relogios-de-ponto' && solutionPath(service.slug) === `/solucoes/${slug}`);
 
 export function generateStaticParams() {
   return Object.keys(serviceSeoContent)
-    .filter((serviceSlug) => serviceSlug !== 'relogios-de-ponto')
+    .filter((serviceSlug) => serviceSlug !== 'relogios-de-ponto' && serviceSlug !== 'controle-de-acesso-facial')
     .map((serviceSlug) => ({ slug: solutionPath(serviceSlug).split('/').pop()! }));
 }
 

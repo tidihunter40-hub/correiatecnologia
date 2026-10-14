@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { SubpageHero } from '../../components/subpage-hero';
 import { SolutionCard } from '../../components/cards';
 import { VideoShowcase } from '../../components/video-showcase';
-import { solutionShowcaseServices } from '../../lib/site';
+import { solutionShowcaseServices, solutionPath } from '../../lib/site';
 
 export const metadata: Metadata = { title: 'Soluções de Acesso, Ponto e Automação em Salvador', description: 'Conheça as soluções da Correia Tecnologia em controle de acesso facial, relógios de ponto, automação, venda, locação e instalação em Salvador.', alternates: { canonical: '/servicos' }, openGraph: { url: '/servicos', title: 'Soluções em segurança e automação | Correia Tecnologia', description: 'Controle de acesso, relógios de ponto, automação, venda, locação e instalação em Salvador.', images: [{ url: '/images/solutions/acesso-facial.webp', alt: 'Terminal de reconhecimento facial em entrada corporativa' }] } };
 
@@ -34,7 +34,7 @@ export default function Servicos() { return <main id="conteudo">
         duration="13 s"
         highlights={['Reconhecimento facial para controle de acesso', 'Demonstração de recursos de segurança', 'Avaliação e instalação conforme o ambiente']}
         primaryLabel="Conhecer controle de acesso facial"
-        primaryHref="/solucoes/controle-de-acesso-facial"
+        primaryHref={solutionPath('controle-de-acesso-facial')}
         quoteMessage="Olá! Gostaria de solicitar um orçamento para uma solução EVO Facial."
       />
       <p className="solutions-image-note">Fotografias ilustrativas geradas por IA. Não representam instalações reais nem identificam modelos específicos à venda.</p>
