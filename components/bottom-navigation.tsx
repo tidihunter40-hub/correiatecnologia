@@ -38,7 +38,9 @@ function NavIcon({ name }: { name: string }) {
 }
 
 function isRouteActive(pathname: string, href: string) {
-  return href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
+  if (href === '/') return pathname === '/';
+  if (href === '/servicos') return pathname === href || pathname.startsWith('/servicos/') || pathname.startsWith('/solucoes/');
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 function InstallPWAButton() {
@@ -46,8 +48,12 @@ function InstallPWAButton() {
   const [showInstructions, setShowInstructions] = useState(false);
   if (isInstalled) return <p className="install-status" role="status">Correia já está instalada neste dispositivo.</p>;
   if (canInstall) return <button className="install-pwa-button" type="button" onClick={() => void promptInstall()}><span className="install-pwa-icon" aria-hidden="true">↓</span><span><strong>Instalar aplicativo</strong><small>Adicionar Correia à tela inicial</small></span><span className="install-pwa-arrow" aria-hidden="true">→</span></button>;
-  if (!isIOS) return null;
-  return <div className="ios-install-block"><button className="install-pwa-button" type="button" aria-expanded={showInstructions} onClick={() => setShowInstructions((open) => !open)}><span className="install-pwa-icon" aria-hidden="true">＋</span><span><strong>Como instalar no iPhone ou iPad</strong><small>Instruções para adicionar à tela inicial</small></span><span className="install-pwa-arrow" aria-hidden="true">{showInstructions ? '−' : '→'}</span></button>{showInstructions && <p className="ios-install-help">{isSafari ? 'No Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.' : 'Abra este site no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.'}</p>}</div>;
+  if (!isIOS && !isSafari) return null;
+  const title = isIOS ? 'Como instalar no iPhone ou iPad' : 'Como instalar no Mac';
+  const instructions = isIOS
+    ? isSafari ? 'No Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.' : 'Abra este site no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.'
+    : 'No Safari para Mac, abra o menu Arquivo e escolha “Adicionar ao Dock”.';
+  return <div className="ios-install-block"><button className="install-pwa-button" type="button" aria-expanded={showInstructions} onClick={() => setShowInstructions((open) => !open)}><span className="install-pwa-icon" aria-hidden="true">＋</span><span><strong>{title}</strong><small>{isIOS ? 'Instruções para adicionar à tela inicial' : 'Instruções para adicionar ao Dock'}</small></span><span className="install-pwa-arrow" aria-hidden="true">{showInstructions ? '−' : '→'}</span></button>{showInstructions && <p className="ios-install-help">{instructions}</p>}</div>;
 }
 
 function MoreMenuSheet({ open, onClose, pathname, triggerRef }: { open: boolean; onClose: () => void; pathname: string; triggerRef: React.RefObject<HTMLButtonElement | null> }) {
@@ -112,8 +118,7 @@ export function BottomNavigation() {
       {items.map((item) => {
         const active = item.id === 'more' ? morePathActive : isRouteActive(pathname, item.href!);
         if (item.id === 'more') return <button key={item.id} className="bottom-navigation-item" data-active={active || moreOpen || undefined} type="button" aria-label="Mais páginas" aria-expanded={moreOpen} aria-controls={moreOpen ? 'more-menu-sheet' : undefined} onClick={() => setMoreOpen((open) => !open)} ref={triggerRef}><span className="bottom-navigation-icon"><NavIcon name={item.id}/></span><span className="bottom-navigation-label">{item.label}</span></button>;
-        const exact = pathname === item.href;
-        return <Link key={item.id} className="bottom-navigation-item" data-active={active || undefined} href={item.href!} aria-current={exact ? 'page' : undefined}><span className="bottom-navigation-icon"><NavIcon name={item.id}/></span><span className="bottom-navigation-label">{item.label}</span></Link>;
+        return <Link key={item.id} className="bottom-navigation-item" data-active={active || undefined} href={item.href!} aria-current={active ? 'page' : undefined}><span className="bottom-navigation-icon"><NavIcon name={item.id}/></span><span className="bottom-navigation-label">{item.label}</span></Link>;
       })}
     </nav>
     <MoreMenuSheet open={moreOpen} onClose={closeMore} pathname={pathname} triggerRef={triggerRef}/>

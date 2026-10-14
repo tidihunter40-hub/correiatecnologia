@@ -56,8 +56,12 @@ O site não contém checkout, pagamento ou painel administrativo. Nenhuma public
 - Relatório com escopo, verificações e itens pendentes: [RELATORIO_TECNICO.md](./RELATORIO_TECNICO.md).
 ## Google Search Console
 
-O sitemap público está em `https://correiatecnologia.com.br/sitemap.xml` e é anunciado em `/robots.txt`.
+O sitemap está em `https://correiatecnologia.com.br/sitemap.xml` e é anunciado em `/robots.txt`. As rotas de solução usam `/solucoes/...`; endereços antigos de detalhes em `/servicos/...` redirecionam permanentemente para os canonicais.
 
-Para verificar uma propriedade de prefixo de URL pelo método da meta tag HTML, configure o token fornecido pelo Google (sem a tag `<meta>`) na variável `GOOGLE_SITE_VERIFICATION` do projeto Vercel e faça novo build/deploy depois de confirmar o projeto e o domínio. Para uma propriedade do tipo Domínio, adicione o registro DNS TXT fornecido pelo Search Console ao provedor DNS. Após a verificação, envie o sitemap no Search Console e use Inspeção de URL para pedir rastreamento de `/` e `/solucoes/relogios-de-ponto`.
+Depois de uma publicação autorizada, adicione `correiatecnologia.com.br` como propriedade **Domínio** no Google Search Console e crie no provedor DNS o registro TXT que o Google fornecer. A validação exige acesso ao DNS do domínio. Como alternativa, uma propriedade de prefixo de URL pode usar o token meta fornecido pelo Google na variável `GOOGLE_SITE_VERIFICATION` do ambiente de produção; nunca invente o token, não o versione e faça novo build/deploy depois de configurá-lo.
 
-O repositório não contém o token de verificação. Não use um token presumido nem publique a configuração antes de confirmar a propriedade.
+Após a verificação, envie o sitemap no Search Console, use Inspeção de URL para `/` e `/solucoes/relogios-de-ponto` e acompanhe os relatórios de indexação e rastreamento. Solicitar rastreamento não confirma que a página foi indexada nem garante posição nos resultados.
+
+Antes de criar ou editar um Perfil da Empresa no Google, procure um perfil existente para evitar duplicatas. O proprietário precisa confirmar nome, endereço, telefone e categoria, além de reivindicar/verificar o perfil. Nenhum perfil externo foi alterado.
+
+O repositório não contém token de verificação. Domínio, DNS e publicação continuam sem alteração até autorização do proprietário. Consulte [RELATORIO_SEO.md](./RELATORIO_SEO.md) para o resultado detalhado da auditoria local e as pendências.

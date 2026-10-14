@@ -1,24 +1,20 @@
 /* Correia Tecnologia PWA: only public, same-origin GET responses are cached. */
 const CACHE_PREFIX = 'correia-public-';
-const STATIC_CACHE = `${CACHE_PREFIX}static-v1`;
-const PAGE_CACHE = `${CACHE_PREFIX}pages-v1`;
-const IMAGE_CACHE = `${CACHE_PREFIX}images-v1`;
+const STATIC_CACHE = `${CACHE_PREFIX}static-v2`;
+const PAGE_CACHE = `${CACHE_PREFIX}pages-v2`;
+const IMAGE_CACHE = `${CACHE_PREFIX}images-v2`;
 const OFFLINE_URL = '/offline';
 const MAX_PAGES = 40;
 const MAX_IMAGES = 60;
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
-    const cache = await caches.open(PAGE_CACHE);
-    try {
-      const response = await fetch(OFFLINE_URL, { cache: 'reload' });
-      if (response.ok && response.headers.get('content-type')?.includes('text/html')) {
-        await cache.put(OFFLINE_URL, response);
-      }
-    } catch {
-      // Installation can still complete; offline fallback becomes available
-      // after the first successful online visit to /offline.
+    const response = await fetch(OFFLINE_URL, { cache: 'reload' });
+    if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) {
+      throw new Error('A página offline não pôde ser preparada; a versão anterior do service worker será mantida.');
     }
+    const cache = await caches.open(PAGE_CACHE);
+    await cache.put(OFFLINE_URL, response);
   })());
 });
 

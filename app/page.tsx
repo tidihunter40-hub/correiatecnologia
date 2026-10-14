@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { featuredEquipment, segments, services, whatsappLink } from '../lib/site';
+import { featuredEquipment, segments, services, solutionPath, whatsappLink } from '../lib/site';
 
 export const metadata: Metadata = {
-  title: 'Correia Tecnologia | Controle de Acesso em Salvador',
+  title: { absolute: 'Correia Tecnologia | Controle de Acesso em Salvador' },
   description: 'Controle de acesso facial, relógios de ponto e automação em Salvador. Conheça as soluções da Correia Tecnologia e solicite seu orçamento.',
   alternates: { canonical: '/' },
-  openGraph: { url: '/', title: 'Correia Tecnologia | Controle de Acesso em Salvador', description: 'Soluções em reconhecimento facial, controle de acesso, relógios de ponto e automação em Salvador e Bahia.' },
+  openGraph: { url: '/', title: 'Correia Tecnologia | Controle de Acesso em Salvador', description: 'Soluções em reconhecimento facial, controle de acesso, relógios de ponto e automação em Salvador e Bahia.', images: [{ url: '/images/reference/hero-acesso.webp', width: 1536, height: 1024, alt: 'Pessoa usando terminal de reconhecimento facial em uma entrada corporativa' }] },
 };
 
 const homeServices = [
@@ -71,7 +71,7 @@ export default function Home() {
 
     <section className="reference-services" id="solucoes" aria-label="Soluções da Correia Tecnologia">
       <div className="reference-container reference-service-grid">
-        {homeServices.map((item) => <Link key={item.slug} href={`/servicos/${item.slug}`} className={`reference-service-card ${item.slug === services[5].slug ? 'reference-install-card' : ''}`}>
+        {homeServices.map((item) => <Link key={item.slug} href={solutionPath(item.slug)} className={`reference-service-card ${item.slug === services[5].slug ? 'reference-install-card' : ''}`}>
           <div className="reference-service-photo"><Image src={`/images/reference/${item.image}.webp`} alt="" fill sizes="(max-width: 760px) 35vw, 90px" /></div>
           <div className="reference-service-copy"><h2>{item.title}</h2><p>{item.description}</p><span className="reference-card-link">Saiba mais <b aria-hidden="true">→</b></span></div>
         </Link>)}

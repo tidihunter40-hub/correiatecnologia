@@ -76,7 +76,7 @@ export default function Contato() {
           </div>
         </div>
         <div className="contact-hero-photo">
-          <Image src="/images/contato-acesso.png" alt="Pessoa utilizando um terminal de reconhecimento facial em uma entrada corporativa; imagem ilustrativa" fill priority sizes="(max-width: 760px) 100vw, 48vw" />
+          <Image src="/images/contato/atendimento.webp" alt="Pessoa usando terminal de reconhecimento facial na entrada de um ambiente corporativo; imagem ilustrativa fornecida pelo cliente" fill priority sizes="(max-width: 760px) 100vw, 48vw" />
           <span>Imagem ilustrativa de uma solução de acesso</span>
         </div>
       </div>
@@ -87,7 +87,7 @@ export default function Contato() {
         <div className="section-head contact-section-head"><div><span className="eyebrow">Atendimento Correia Tecnologia</span><h2 id="contact-channels-title">Como podemos ajudar você?</h2></div><p>Escolha a maneira mais conveniente para conversar com nossa equipe.</p></div>
         <div className="contact-channel-grid">
           <article className="contact-channel-card"><span className="contact-channel-icon">◉</span><h3>Atendimento pelo WhatsApp</h3><p>Converse diretamente com nossa equipe comercial.</p><a href={whatsappLink('Olá! Gostaria de conversar com a equipe da Correia Tecnologia.')} target="_blank" rel="noreferrer">Iniciar conversa <b>↗</b></a></article>
-          <article className="contact-channel-card"><span className="contact-channel-icon">☎</span><h3>Ligue para nossa equipe</h3><p>Fale com a Correia Tecnologia pelo telefone comercial.</p><a href={`tel:${contact.phoneHref}`}>{contact.phone} <b>↗</b></a></article>
+          <article className="contact-channel-card"><span className="contact-channel-icon">☎</span><h3>Telefone e e-mail</h3><p>Fale com a Correia Tecnologia pelo telefone ou escreva para a equipe.</p><a href={`tel:${contact.phoneHref}`}>{contact.phone} <b>↗</b></a><a href={`mailto:${contact.email}`}>{contact.email} <b>↗</b></a></article>
           <article className="contact-channel-card"><span className="contact-channel-icon">⌖</span><h3>Venha nos visitar</h3><p>{contact.address}</p><a href={mapSearchUrl} target="_blank" rel="noreferrer">Ver no Google Maps <b>↗</b></a></article>
           <article className="contact-channel-card"><span className="contact-channel-icon">✉</span><h3>Peça um orçamento</h3><p>Conte um pouco sobre sua necessidade e receba o retorno pelo WhatsApp.</p><a href="#orcamento">Preencher formulário <b>↓</b></a></article>
         </div>

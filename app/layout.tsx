@@ -54,7 +54,6 @@ const businessSchema = {
       address: {
         '@type': 'PostalAddress',
         streetAddress: contact.streetAddress,
-        postalCode: contact.postalCode,
         addressLocality: contact.city,
         addressRegion: contact.region,
         addressCountry: 'BR',
@@ -71,7 +70,6 @@ const businessSchema = {
       address: {
         '@type': 'PostalAddress',
         streetAddress: contact.streetAddress,
-        postalCode: contact.postalCode,
         addressLocality: contact.city,
         addressRegion: contact.region,
         addressCountry: 'BR',

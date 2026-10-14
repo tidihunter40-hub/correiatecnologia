@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { PageIntro } from '../../components/site-chrome';
 
 export const metadata: Metadata = {
-  title: 'Blog de segurança e automação',
+  title: 'Conteúdos sobre Segurança e Automação em Salvador',
   description: 'Orientações sobre controle de acesso, reconhecimento facial, relógios de ponto e automação para empresas e condomínios em Salvador e na Bahia.',
   alternates: { canonical: '/blog' },
-  openGraph: { url: '/blog', title: 'Blog | Correia Tecnologia', description: 'Conteúdos sobre controle de acesso, reconhecimento facial, relógios de ponto e automação em Salvador e Bahia.' },
+  openGraph: { url: '/blog', title: 'Blog | Correia Tecnologia', description: 'Conteúdos sobre controle de acesso, reconhecimento facial, relógios de ponto e automação em Salvador e Bahia.', images: [{ url: '/images/reference/hero-acesso.webp', alt: 'Terminal de reconhecimento facial em ambiente corporativo' }] },
 };
 
 const topics = [

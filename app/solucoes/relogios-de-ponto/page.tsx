@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { whatsappLink, siteUrl, contact } from '../../../lib/site';
+import { serviceSeoContent } from '../../../lib/service-seo';
 
 const canonicalPath = '/solucoes/relogios-de-ponto';
-const pageTitle = 'Relógio de Ponto Facial em Salvador | Correia Tecnologia';
-const pageDescription = 'Venda, locação e instalação de relógios de ponto facial em Salvador. Conheça nossas soluções e solicite um orçamento.';
+const pageTitle = serviceSeoContent['relogios-de-ponto'].title;
+const pageDescription = serviceSeoContent['relogios-de-ponto'].description;
 
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
@@ -74,7 +75,7 @@ export default function RelogiosDePontoPage() {
         </div>
 
         <div className="point-content-grid">
-          <article><h3>Como funciona o reconhecimento facial</h3><p>O terminal compara a face apresentada no momento do registro com os dados previamente cadastrados no sistema compatível. Assim, a identificação pode ser usada para apoiar o registro de entradas e saídas, conforme os recursos do modelo escolhido.</p></article>
+          <article><h3>Como funciona o reconhecimento facial</h3><p>O terminal utiliza a identificação facial de acordo com os dados previamente cadastrados e os recursos do sistema compatível. Os procedimentos de cadastro e operação variam conforme o equipamento escolhido.</p></article>
           <article><h3>Aplicações em empresas</h3><p>Empresas podem usar relógios de ponto para organizar as marcações de colaboradores e apoiar as rotinas de acompanhamento da jornada. A capacidade, as integrações e os meios de identificação variam conforme o equipamento e devem ser confirmados antes da contratação.</p></article>
           <article><h3>Venda e locação</h3><p>A Correia Tecnologia atende consultas sobre compra e locação de equipamentos. A disponibilidade, os modelos, os prazos e as condições comerciais são avaliados com a equipe para cada necessidade.</p></article>
           <article><h3>Instalação e suporte</h3><p>A implantação pode incluir avaliação do local, instalação e configuração do equipamento. O escopo de suporte é confirmado com a equipe conforme o modelo, a infraestrutura e as condições acordadas.</p></article>
@@ -84,6 +85,10 @@ export default function RelogiosDePontoPage() {
           <div><span className="eyebrow">Atendimento local</span><h2>Relógios de ponto facial em Salvador</h2><p>Fale com a Correia Tecnologia para explicar a rotina da sua empresa e consultar opções de venda, locação, instalação e suporte em Salvador, Bahia.</p><p className="point-address">{contact.address}</p></div>
           <div className="point-actions"><a className="button" href={quoteLink} target="_blank" rel="noreferrer">Solicitar orçamento <span aria-hidden="true">↗</span></a><a className="text-link" href={`tel:${contact.phoneHref}`}>Ligar: {contact.phone} <span aria-hidden="true">↗</span></a><Link className="text-link" href="/contato">Outras formas de contato <span aria-hidden="true">→</span></Link></div>
         </div>
+        <section className="point-faq" aria-labelledby="point-faq-title">
+          <h2 id="point-faq-title">Perguntas frequentes sobre relógio de ponto facial</h2>
+          {serviceSeoContent['relogios-de-ponto'].questions.map((item) => <article key={item.question}><h3>{item.question}</h3><p>{item.answer}</p></article>)}
+        </section>
       </div>
     </section>
   </main>;

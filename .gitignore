@@ -1,6 +1,7 @@
 .next/
 .next-output/
 .next-final/
+.next-pwa-*/
 .vercel/
 node_modules/
 out/

@@ -1,12 +1,23 @@
 export const siteUrl = 'https://correiatecnologia.com.br';
 
+export const solutionPaths: Record<string, string> = {
+  'controle-de-acesso-facial': '/solucoes/controle-de-acesso-facial',
+  'relogios-de-ponto': '/solucoes/relogios-de-ponto',
+  'automacao-de-entradas': '/solucoes/automacao-de-entradas',
+  'venda-de-equipamentos': '/solucoes/venda-de-equipamentos',
+  'locacao-de-equipamentos': '/solucoes/locacao-de-equipamentos',
+  'instalacao-de-solucoes': '/solucoes/instalacao-e-suporte',
+};
+
+export const solutionPath = (serviceSlug: string) => solutionPaths[serviceSlug] ?? '/servicos';
+
 export const contact = {
   phone: '(71) 3018-9812',
   phoneHref: '+557130189812',
   whatsapp: '5571991504761',
-  address: 'Av. Fernandes da Cunha, 340 – sala 301 – Mares, Salvador – BA, 40410-200',
+  email: 'crrelogios.2024@gmail.com',
+  address: 'Av. Fernandes da Cunha, 340 – sala 301 – Mares, Salvador – BA',
   streetAddress: 'Av. Fernandes da Cunha, 340, sala 301, Mares',
-  postalCode: '40410-200',
   city: 'Salvador',
   region: 'BA',
 };
@@ -35,10 +46,10 @@ export const segments = [
 ];
 
 export const products = [
-  { title: 'Terminal de reconhecimento facial', kind: 'Controle de acesso', description: 'Terminal para identificação facial em ambientes corporativos e de circulação controlada.', features: ['Identificação facial', 'Integração conforme projeto', 'Modelos e especificações sob consulta'], applications: 'Empresas, condomínios, clínicas e academias', icon: '◉', image: '/images/terminal-acesso.webp', alt: 'Acesso facial em entrada corporativa, com terminal instalado ao lado de uma porta de vidro' },
+  { title: 'Terminal de reconhecimento facial', kind: 'Controle de acesso', description: 'Terminal para identificação facial em ambientes corporativos e de circulação controlada.', features: ['Identificação facial', 'Integração conforme projeto', 'Modelos e especificações sob consulta'], applications: 'Empresas, condomínios, clínicas e academias', icon: '◉', image: '/images/acesso-escritorio.png', alt: 'Pessoa utilizando leitor facial em entrada corporativa, imagem ilustrativa' },
   { title: 'Relógio eletrônico de ponto', kind: 'Gestão de jornada', description: 'Equipamentos para registro de ponto e suporte às rotinas de jornada de trabalho.', features: ['Opções biométricas e outras modalidades', 'Compatibilidade varia por modelo', 'Consulte disponibilidade'], applications: 'Empresas, comércios, escolas e clínicas', icon: '◷', image: '/images/relogio-ponto-foto.webp', alt: 'Relógio eletrônico de ponto em close, com tela e leitor biométrico' },
   { title: 'Catraca e controle de passagem', kind: 'Automação de entradas', description: 'Equipamentos para organizar passagens em entradas com fluxo definido.', features: ['Avaliação de fluxo e espaço', 'Possibilidade de integração', 'Configuração sob consulta'], applications: 'Academias, empresas, escolas e condomínios', icon: '↗', image: '/images/acesso-catraca.png', alt: 'Instalação de controle de acesso em entrada com catracas' },
-  { title: 'Acessórios e suprimentos para ponto', kind: 'Acessórios', description: 'Itens de reposição e consumíveis para equipamentos de controle de ponto.', features: ['Bobinas, cartões e acessórios conforme disponibilidade', 'Compatibilidade por modelo', 'Consulte o item necessário'], applications: 'Empresas e operações com relógio de ponto', icon: '▤', image: '/images/suprimentos-ponto.png', alt: 'Bobina térmica e cartões de ponto genéricos, sem marca' },
+  { title: 'Acessórios e suprimentos para ponto', kind: 'Acessórios', description: 'Itens de reposição e consumíveis para equipamentos de controle de ponto.', features: ['Bobinas, cartões e acessórios conforme disponibilidade', 'Compatibilidade por modelo', 'Consulte o item necessário'], applications: 'Empresas e operações com relógio de ponto', icon: '▤', image: '/images/equipamentos/suprimentos-ponto.webp', alt: 'Bobina de papel térmico e cartões genéricos para equipamentos de ponto, imagem ilustrativa' },
 ];
 
 export const featuredEquipment = [
@@ -46,8 +57,8 @@ export const featuredEquipment = [
     title: 'Terminal de Reconhecimento Facial',
     kind: 'Controle de acesso',
     description: 'Tecnologia para identificação facial e controle de entrada e saída em empresas, condomínios e estabelecimentos.',
-    image: '/images/terminal-acesso.png',
-    alt: 'Terminal de reconhecimento facial instalado junto a uma entrada corporativa',
+    image: '/images/reference/servico-venda.webp',
+    alt: 'Composição ilustrativa de equipamentos para controle de acesso',
     features: ['Reconhecimento facial', 'Controle de acesso', 'Tecnologia moderna'],
     quote: 'Olá! Conheci a Correia Tecnologia pelo site e gostaria de solicitar um orçamento para um terminal de reconhecimento facial.',
   },

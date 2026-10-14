@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { whatsappLink } from '../lib/site';
+import { solutionPath, whatsappLink } from '../lib/site';
 
 export function ServiceCard({ item }: { item: { slug: string; title: string; short: string; icon: string; image?: string; alt?: string } }) {
-  return <Link href={`/servicos/${item.slug}`} className="service-card">{item.image ? <div className="service-card-photo"><Image src={item.image} alt={item.alt || item.title} fill sizes="(max-width: 760px) 100vw, 33vw" /></div> : <span className="card-icon" aria-hidden="true">{item.icon}</span>}<span className="card-arrow" aria-hidden="true">↗</span><h3>{item.title}</h3><p>{item.short}</p><span className="text-link">Saiba mais <span aria-hidden="true">→</span></span></Link>;
+  return <Link href={solutionPath(item.slug)} className="service-card">{item.image ? <div className="service-card-photo"><Image src={item.image} alt={item.alt || item.title} fill sizes="(max-width: 760px) 100vw, 33vw" /></div> : <span className="card-icon" aria-hidden="true">{item.icon}</span>}<span className="card-arrow" aria-hidden="true">↗</span><h3>{item.title}</h3><p>{item.short}</p><span className="text-link">Saiba mais <span aria-hidden="true">→</span></span></Link>;
 }
 
 type SolutionCardItem = {
@@ -28,7 +28,7 @@ function SolutionIcon({ kind }: { kind: string }) {
 }
 
 export function SolutionCard({ item }: { item: SolutionCardItem }) {
-  const href = item.slug === 'relogios-de-ponto' ? '/solucoes/relogios-de-ponto' : `/servicos/${item.slug}`;
+  const href = solutionPath(item.slug);
   const containImage = ['face', 'box', 'calendar'].includes(item.icon);
   return <article className="solution-feature-card">
     <div className={`solution-card-image ${containImage ? 'solution-card-image-contain' : ''}`}>

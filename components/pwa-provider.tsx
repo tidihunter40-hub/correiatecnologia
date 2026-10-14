@@ -91,9 +91,14 @@ export function PWAProvider({ children }: { children: ReactNode }) {
 
   async function promptInstall() {
     if (!installPrompt) return;
-    await installPrompt.prompt();
-    const choice = await installPrompt.userChoice;
-    if (choice.outcome === 'accepted') setInstallPrompt(null);
+    try {
+      await installPrompt.prompt();
+      await installPrompt.userChoice;
+    } catch {
+      // Some browsers dismiss the install prompt by rejecting its promise.
+    } finally {
+      setInstallPrompt(null);
+    }
   }
 
   function updateApp() {
