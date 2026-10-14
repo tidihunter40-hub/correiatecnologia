@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SubpageHero } from '../../components/subpage-hero';
 import { SolutionCard } from '../../components/cards';
-import { services } from '../../lib/site';
+import { solutionShowcaseServices } from '../../lib/site';
 
 export const metadata: Metadata = { title: 'Soluções de Acesso, Ponto e Automação em Salvador', description: 'Conheça as soluções da Correia Tecnologia em controle de acesso facial, relógios de ponto, automação, venda, locação e instalação em Salvador.', alternates: { canonical: '/servicos' }, openGraph: { url: '/servicos', title: 'Soluções em segurança e automação | Correia Tecnologia', description: 'Controle de acesso, relógios de ponto, automação, venda, locação e instalação em Salvador.', images: [{ url: '/images/reference/hero-acesso.webp', alt: 'Terminal de reconhecimento facial em entrada corporativa' }] } };
 
@@ -16,14 +16,14 @@ export default function Servicos() { return <main id="conteudo">
           <h2 id="solutions-title">Tecnologia e segurança<br/><em>para cada necessidade.</em></h2>
         </div>
         <div className="solutions-showcase-intro">
-          <p>Oferecemos soluções completas em reconhecimento facial, relógios de ponto, controle de acesso e automação para empresas e estabelecimentos.</p>
+          <p>Oferecemos soluções completas em segurança eletrônica, controle de acesso e automação, unindo tecnologia, praticidade e mais tranquilidade para empresas, condomínios e residências.</p>
           <Link className="button" href="#servicos-lista">Conhecer todas as soluções <span aria-hidden="true">→</span></Link>
         </div>
       </div>
       <div className="solutions-feature-grid" id="servicos-lista">
-        {services.map((service) => <SolutionCard key={service.slug} item={service} />)}
+        {solutionShowcaseServices.map((service) => <SolutionCard key={service.slug} item={service} />)}
       </div>
-      <p className="solutions-image-note">Imagens ilustrativas. Equipamentos, modelos e disponibilidade são confirmados sob consulta.</p>
+      <p className="solutions-image-note">Fotografias ilustrativas geradas por IA. Não representam instalações reais nem identificam modelos específicos à venda.</p>
     </div>
   </section>
   <section className="section"><div className="container"><div className="bottom-cta"><h2>Quer conversar sobre uma solução?</h2><p>Envie sua necessidade e consulte os próximos passos com a equipe Correia.</p><Link className="button" href="/contato">Fale com um especialista <span>↗</span></Link></div></div></section>
