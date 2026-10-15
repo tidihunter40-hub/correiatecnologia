@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const structuredData = [
   {
     '@context': 'https://schema.org', '@type': 'Service',
-    name: 'Relógio de Ponto Facial em Salvador',
+    name: 'Leitor e Relógio de Ponto Facial em Salvador, Bahia',
     serviceType: 'Venda, locação, instalação e suporte para relógios de ponto facial',
     description: pageDescription, url: `${siteUrl}${canonicalPath}`,
     areaServed: [{ '@type': 'City', name: 'Salvador' }, { '@type': 'AdministrativeArea', name: 'Bahia' }],
@@ -49,7 +49,7 @@ export default function RelogiosDePontoPage() {
       <div className="subpage-hero-shade" />
       <div className="container subpage-hero-inner"><div className="subpage-hero-copy">
         <span className="subpage-eyebrow">Gestão de jornada<i /></span>
-        <h1 id="point-page-title">Relógios de Ponto Facial <em>em Salvador</em></h1>
+        <h1 id="point-page-title">Leitor e Relógio de Ponto Facial <em>em Salvador, Bahia</em></h1>
         <p>{pageDescription}</p>
         <div className="subpage-actions">
           <a className="reference-button reference-button-primary" href={quoteLink} target="_blank" rel="noreferrer">Solicitar orçamento <span aria-hidden="true">→</span></a>
@@ -62,17 +62,17 @@ export default function RelogiosDePontoPage() {
 
     <section className="section point-content-section"><div className="container point-content-wrap">
       <div className="point-content-intro"><span className="eyebrow">Controle de jornada</span>
-        <h2>Registro de ponto pensado para a rotina da <em>sua empresa.</em></h2>
-        <p>Relógios de ponto facial combinam registro de jornada com identificação por reconhecimento facial. Para escolher um leitor de ponto facial em Salvador ou um relógio de ponto eletrônico em Salvador, considere o número de colaboradores, o fluxo e as integrações necessárias para o controle de ponto facial da operação.</p>
+        <h2>O que é um relógio de ponto facial?</h2>
+        <p>É um equipamento de registro de jornada que identifica o colaborador pelo rosto antes de registrar a marcação. O leitor de ponto facial é o recurso de identificação; o relógio de ponto eletrônico reúne esse recurso e as funções de registro, conforme o modelo. Para escolher uma solução em Salvador, considere quantas pessoas marcarão ponto, os horários de maior movimento e a compatibilidade com os processos da empresa.</p>
       </div>
       <div className="point-content-grid">
-        <article><h3>Como funciona o reconhecimento facial</h3><p>O terminal utiliza a identificação facial de acordo com os dados previamente cadastrados e os recursos do sistema compatível. Os procedimentos de cadastro e operação variam conforme o equipamento escolhido.</p></article>
-        <article><h3>Aplicações em empresas</h3><p>Empresas podem usar relógios de ponto para organizar as marcações de colaboradores e apoiar as rotinas de acompanhamento da jornada. Capacidade, integrações e meios de identificação variam conforme o equipamento e devem ser confirmados antes da contratação.</p></article>
-        <article><h3>Venda e locação</h3><p>A Correia Tecnologia atende consultas sobre compra e locação de equipamentos. Disponibilidade, modelos, prazos e condições comerciais são avaliados com a equipe para cada necessidade.</p></article>
-        <article><h3>Instalação e suporte</h3><p>A implantação pode incluir avaliação do local, instalação e configuração do equipamento. O escopo de suporte é confirmado com a equipe conforme o modelo, a infraestrutura e as condições acordadas.</p></article>
+        <article><h3>Como funciona o reconhecimento facial</h3><p>Após o cadastro autorizado, o terminal compara a face apresentada com os dados registrados no sistema compatível. Quando a identificação é aceita, a marcação de ponto pode ser registrada. Cadastro, armazenamento, integração e formas alternativas de identificação dependem do equipamento e da configuração escolhidos.</p></article>
+        <article><h3>Benefícios e aplicações para empresas</h3><p>A identificação facial pode tornar a marcação mais prática e ajudar a associá-la ao colaborador cadastrado. Empresas, comércios, escolas e clínicas podem avaliar a solução para rotinas de entrada, saída e outras marcações de jornada. A escolha deve considerar o fluxo de pessoas e as regras de trabalho da operação.</p></article>
+        <article><h3>Soluções disponíveis sob consulta</h3><p>A Correia Tecnologia e Automações recebe consultas sobre compra e locação de relógios de ponto. Modelos faciais, recursos, compatibilidade, disponibilidade, prazos e condições comerciais são confirmados pela equipe antes do orçamento.</p></article>
+        <article><h3>Instalação e suporte</h3><p>A implantação pode incluir avaliação do local, instalação e configuração do equipamento. O escopo de suporte é confirmado conforme o modelo, a infraestrutura e as condições acordadas. O tratamento dos dados faciais deve ser definido pela empresa conforme sua finalidade e as obrigações aplicáveis.</p></article>
       </div>
-      <div className="point-salvador-panel"><div><span className="eyebrow">Atendimento local</span><h2>Relógios de ponto facial em Salvador</h2>
-        <p>Fale com a Correia Tecnologia para explicar a rotina da sua empresa e consultar opções de venda, locação, instalação e suporte em Salvador, Bahia.</p><p className="point-address">{contact.address}</p>
+      <div className="point-salvador-panel"><div><span className="eyebrow">Atendimento local</span><h2>Atendimento em Salvador e região</h2>
+        <p>Para solicitar um orçamento, informe à Correia Tecnologia e Automações o número de colaboradores, os locais de instalação, os horários de maior fluxo e se precisa de integração com um sistema existente. A equipe confirma as opções de equipamento, instalação e suporte para Salvador, Bahia, e região.</p><p className="point-address">{contact.address}</p>
       </div><div className="point-actions"><a className="button" href={quoteLink} target="_blank" rel="noreferrer">Solicitar orçamento <span aria-hidden="true">↗</span></a><a className="text-link" href={`tel:${contact.phoneHref}`}>Ligar: {contact.phone} <span aria-hidden="true">↗</span></a><Link className="text-link" href="/contato">Outras formas de contato <span aria-hidden="true">→</span></Link></div></div>
       <section className="point-faq" aria-labelledby="point-faq-title"><h2 id="point-faq-title">Perguntas frequentes sobre relógio de ponto facial</h2>
         {serviceSeoContent['relogios-de-ponto'].questions.map((item) => <article key={item.question}><h3>{item.question}</h3><p>{item.answer}</p></article>)}

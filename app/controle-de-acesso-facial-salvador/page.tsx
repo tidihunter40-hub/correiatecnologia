@@ -7,7 +7,7 @@ import { serviceSeoContent } from '../../lib/service-seo';
 const canonicalPath = '/controle-de-acesso-facial-salvador';
 const service = services.find((item) => item.slug === 'controle-de-acesso-facial')!;
 const content = serviceSeoContent['controle-de-acesso-facial'];
-const pageTitle = 'Controle de Acesso Facial em Salvador | Correia Tecnologia';
+const pageTitle = 'Controle de Acesso Facial em Salvador BA | Correia Tecnologia';
 const pageDescription = 'Conheça soluções de controle de acesso facial em Salvador para empresas e condomínios. Consulte equipamentos, instalação e suporte com a Correia Tecnologia.';
 
 export const metadata: Metadata = {
@@ -46,7 +46,7 @@ export default function ControleDeAcessoFacialPage() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} />
     <SubpageHero
       eyebrow="Reconhecimento facial / Salvador"
-      title={<>Controle de Acesso Facial <em>em Salvador</em></>}
+      title={<>Controle de Acesso Facial <em>em Salvador, Bahia</em></>}
       text={pageDescription}
       image={service.image}
       imageAlt="Terminal de reconhecimento facial instalado junto a uma entrada corporativa; imagem ilustrativa"
@@ -58,16 +58,16 @@ export default function ControleDeAcessoFacialPage() {
     <section className="section service-detail-section"><div className="container">
       <div className="point-content-intro"><span className="eyebrow">Controle de acesso biométrico</span>
         <h2>Reconhecimento facial aplicado ao <em>controle de entradas.</em></h2>
-        <p>{content.what} Um sistema de reconhecimento facial pode ser avaliado junto com as regras de circulação e a infraestrutura de cada local. Quando o projeto também envolve automação empresarial em Salvador, a integração deve considerar os equipamentos e os fluxos existentes.</p>
+        <p>{content.what} Diferentemente do registro de jornada, o objetivo aqui é permitir ou negar a passagem conforme as permissões de acesso. O projeto considera as entradas, a circulação de pessoas e a infraestrutura de cada local.</p>
       </div>
       <div className="point-content-grid">
         <article><h3>Como funciona a identificação facial</h3><p>O terminal compara a face apresentada com os cadastros e permissões configurados no sistema compatível. Os recursos, requisitos e procedimentos de cadastro dependem do modelo e do projeto.</p></article>
-        <article><h3>Aplicações para empresas e condomínios</h3><p>Empresas e condomínios podem consultar a tecnologia para organizar a entrada de colaboradores, moradores, visitantes e prestadores, de acordo com os perfis e fluxos definidos para o ambiente.</p></article>
+        <article><h3>Aplicações para empresas e condomínios</h3><p>Empresas podem controlar acessos de colaboradores e visitantes a entradas ou áreas definidas. Condomínios podem avaliar a identificação de moradores e prestadores conforme suas regras de entrada. Escolas, clínicas e academias também podem consultar soluções para seus próprios fluxos.</p></article>
         <article><h3>Benefícios para a operação</h3><p>A solução pode apoiar a organização das permissões e reduzir etapas manuais de identificação. O resultado esperado depende do dimensionamento, da configuração e das regras adotadas em cada local.</p></article>
         <article><h3>Instalação, suporte e dados</h3><p>A equipe pode avaliar o local, indicar equipamentos compatíveis e definir o escopo de instalação e suporte. Como dados biométricos são sensíveis, a empresa deve estabelecer finalidade, acesso e retenção adequados ao seu contexto e às obrigações aplicáveis.</p></article>
       </div>
       <div className="point-salvador-panel"><div><span className="eyebrow">Atendimento local</span><h2>Controle de acesso facial em Salvador</h2>
-        <p>A Correia Tecnologia e Automações recebe consultas sobre equipamentos e projetos para Salvador e região. Compartilhe o tipo de ambiente e o fluxo de pessoas para conversar sobre alternativas.</p><p className="point-address">{contact.address}</p>
+        <p>A Correia Tecnologia e Automações recebe consultas sobre equipamentos e projetos para Salvador e região. Para solicitar um orçamento, informe o tipo de entrada, o fluxo de pessoas, as regras de liberação e os equipamentos já instalados. A equipe confirma as opções e o escopo de instalação e suporte.</p><p className="point-address">{contact.address}</p>
       </div><div className="point-actions"><a className="button" href={quote} target="_blank" rel="noreferrer">Orçamento pelo WhatsApp <span aria-hidden="true">↗</span></a><Link className="text-link" href="/contato">Outras formas de contato <span aria-hidden="true">→</span></Link><a className="text-link" href={`tel:${contact.phoneHref}`}>Ligar: {contact.phone} <span aria-hidden="true">↗</span></a></div></div>
       <section className="segment-related service-segments" aria-labelledby="related-segments-title">
         <h2 className="subheading" id="related-segments-title">Soluções para diferentes ambientes</h2>

@@ -11,7 +11,7 @@ export type ServiceSeoContent = {
 
 export const serviceSeoContent: Record<string, ServiceSeoContent> = {
   'controle-de-acesso-facial': {
-    title: 'Controle de Acesso Facial em Salvador | Correia Tecnologia',
+    title: 'Controle de Acesso Facial em Salvador BA | Correia Tecnologia',
     description: 'Controle de acesso facial em Salvador para empresas e condomínios. Consulte equipamentos, avaliação do ambiente, instalação e orçamento com a Correia Tecnologia.',
     what: 'Controle de acesso facial usa a identificação do rosto para apoiar a liberação de entradas conforme as permissões configuradas para cada ambiente. Os recursos e o modo de operação dependem do equipamento escolhido.',
     process: 'A implantação começa pelo levantamento das entradas, do fluxo de pessoas e das regras de circulação. Com essas informações, a equipe pode orientar sobre o terminal e a configuração compatíveis com o local.',
@@ -24,8 +24,8 @@ export const serviceSeoContent: Record<string, ServiceSeoContent> = {
     ],
   },
   'relogios-de-ponto': {
-    title: 'Relógio de Ponto Facial em Salvador | Correia Tecnologia',
-    description: 'Venda, locação e instalação de relógios de ponto facial em Salvador. Conheça nossas soluções e solicite um orçamento.',
+    title: 'Leitor e Relógio de Ponto Facial em Salvador BA | Correia Tecnologia',
+    description: 'Leitor e relógio de ponto facial em Salvador, Bahia. Conheça as soluções da Correia Tecnologia e Automações para controle de ponto e reconhecimento facial.',
     what: 'Relógios de ponto facial registram marcações de jornada com identificação por reconhecimento facial, conforme os recursos do modelo e do sistema compatível.',
     process: 'A escolha considera a rotina de marcação, o número de colaboradores, as formas de identificação desejadas e eventuais integrações. Modelos, requisitos e disponibilidade são confirmados antes da contratação.',
     applications: 'Empresas e operações que precisam organizar registros de entrada, saída e outras marcações de jornada podem consultar opções de relógios de ponto.',
