@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { getImageProps } from 'next/image';
 import type { Metadata } from 'next';
 import { VideoShowcase } from '../components/video-showcase';
 import { featuredEquipment, segments, services, solutionPath, whatsappLink } from '../lib/site';
@@ -20,6 +20,15 @@ const homeServices = [
   { slug: services[4].slug, title: 'Locação de Equipamentos', description: 'Soluções sob medida para o seu negócio, com instalação inclusa.', image: '/images/solutions/cameras-seguranca.webp' },
   { slug: services[5].slug, title: 'Instalação e Suporte Técnico', description: 'Equipe especializada para instalação, manutenção e suporte.', image: '/images/heroes/instalacao-controle-acesso.webp' },
 ];
+
+const desktopHeroSizes = '(max-width: 1199px) 100vw, 70vw';
+const { props: desktopHeroImage } = getImageProps({
+  src: '/images/heroes/controle-acesso-facial.webp',
+  alt: '',
+  fill: true,
+  quality: 88,
+  sizes: desktopHeroSizes,
+});
 
 function FeatureIcon({ kind }: { kind: string }) {
   if (kind === 'shield') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 27 7v8c0 7-4.6 11.8-11 14C9.6 26.8 5 22 5 15V7l11-4Z"/><path d="m11 16 3.2 3.2L21 12"/></svg>;
@@ -44,8 +53,9 @@ function EquipmentFeatureIcon({ index }: { index: number }) {
 
 export default function Home() {
   return <main id="conteudo" className="reference-home">
+    <link rel="preload" as="image" media="(min-width: 761px)" imageSrcSet={desktopHeroImage.srcSet} imageSizes={desktopHeroSizes} fetchPriority="high" />
     <section className="reference-hero" aria-labelledby="home-title">
-      <Image className="reference-hero-photo" src="/images/heroes/controle-acesso-facial.webp" alt="Fotografia ilustrativa de visitante usando terminal de reconhecimento facial em uma entrada corporativa moderna" fill priority quality={88} sizes="(max-width: 760px) 1px, (max-width: 1199px) 100vw, 70vw" />
+      <Image className="reference-hero-photo" src="/images/heroes/controle-acesso-facial.webp" alt="Fotografia ilustrativa de visitante usando terminal de reconhecimento facial em uma entrada corporativa moderna" fill loading="lazy" fetchPriority="high" quality={88} sizes={desktopHeroSizes} />
       <div className="reference-hero-shade" />
       <div className="reference-container reference-hero-inner">
         <div className="reference-hero-copy">
