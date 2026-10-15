@@ -15,7 +15,7 @@ export const contact = {
   phone: '(71) 3018-9812',
   phoneHref: '+557130189812',
   whatsapp: '5571991504761',
-  email: 'crrelogios.2024@gmail.com',
+  email: 'correia.tecnologiaeautomacao@gmail.com',
   address: 'Av. Fernandes da Cunha, 340 – sala 301 – Mares, Salvador – BA',
   streetAddress: 'Av. Fernandes da Cunha, 340, sala 301, Mares',
   city: 'Salvador',
@@ -59,36 +59,6 @@ export const products = [
   { title: 'Relógio eletrônico de ponto', kind: 'Gestão de jornada', description: 'Equipamentos para registro de ponto e suporte às rotinas da jornada de trabalho.', features: ['Opções biométricas e cartão', 'Compatibilidade varia por modelo', 'Consulte o modelo ideal'], applications: 'Empresas, comércios, escolas e clínicas', icon: '◷', image: '/images/solutions/relogio-ponto.webp', alt: 'Relógio de ponto biométrico em ambiente de escritório; imagem ilustrativa' },
   { title: 'Catraca e controle de passagem', kind: 'Automação de entradas', description: 'Equipamentos para organizar passagens em entradas com fluxo definido.', features: ['Alta resistência e fluxo seguro', 'Possibilidade de integração', 'Configurações sob consulta'], applications: 'Academias, empresas, escolas e condomínios', icon: '↗', image: '/images/solutions/catracas-entrada.webp', alt: 'Catracas de aço inox em entrada corporativa; imagem ilustrativa' },
   { title: 'Acessórios e suprimentos para ponto', kind: 'Acessórios', description: 'Itens de reposição e consumo para equipamentos de controle de ponto.', features: ['Bobinas e cartões compatíveis', 'Compatibilidade por modelo', 'Consulte o item necessário'], applications: 'Empresas e operações com relógio de ponto', icon: '▤', image: '/images/equipamentos/suprimentos-ponto.webp', alt: 'Bobinas, cartões e acessórios para controle de ponto; imagem ilustrativa' },
-];
-
-export const featuredEquipment = [
-  {
-    title: 'Terminal de Reconhecimento Facial',
-    kind: 'Controle de acesso',
-    description: 'Tecnologia para identificação facial e controle de entrada e saída em empresas, condomínios e estabelecimentos.',
-    image: '/images/solutions/acesso-facial.webp',
-    alt: 'Visitante usando terminal de reconhecimento facial instalado em entrada corporativa',
-    features: ['Reconhecimento facial', 'Controle de acesso', 'Tecnologia moderna', 'Mais segurança'],
-    quote: 'Olá! Conheci a Correia Tecnologia pelo site e gostaria de solicitar um orçamento para um terminal de reconhecimento facial.',
-  },
-  {
-    title: 'Relógio de Ponto Biométrico',
-    kind: 'Gestão de jornada',
-    description: 'Soluções para registro de ponto e organização da jornada de trabalho, com mais precisão e confiabilidade.',
-    image: '/images/heroes/relogio-ponto-facial.webp',
-    alt: 'Terminal biométrico de registro de ponto em ambiente de escritório',
-    features: ['Registro de ponto', 'Leitura biométrica', 'Gestão de jornada', 'Relatórios completos'],
-    quote: 'Olá! Conheci a Correia Tecnologia pelo site e gostaria de solicitar um orçamento para um relógio de ponto.',
-  },
-  {
-    title: 'Catracas e Controle de Acesso',
-    kind: 'Automação de entradas',
-    description: 'Equipamentos para organizar e controlar a circulação de pessoas em ambientes corporativos e comerciais.',
-    image: '/images/solutions/catracas-entrada.webp',
-    alt: 'Catracas eletrônicas com leitores de acesso em uma entrada corporativa',
-    features: ['Controle de passagem', 'Automação de entradas', 'Segurança e praticidade', 'Integração com sistemas'],
-    quote: 'Olá! Conheci a Correia Tecnologia pelo site e gostaria de solicitar um orçamento para catracas e controle de acesso.',
-  },
 ];
 
 export const whatsappLink = (message: string) => `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(message)}`;

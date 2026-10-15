@@ -2,7 +2,9 @@ import Link from 'next/link';
 import Image, { getImageProps } from 'next/image';
 import type { Metadata } from 'next';
 import { VideoShowcase } from '../components/video-showcase';
-import { featuredEquipment, segments, services, solutionPath, whatsappLink } from '../lib/site';
+import { segments, services, solutionPath, whatsappLink } from '../lib/site';
+import { catalogProducts } from '../lib/catalog';
+import { CatalogProductCard } from '../components/catalog-product-card';
 
 export const metadata: Metadata = {
   title: { absolute: 'Correia Tecnologia | Ponto Facial e Controle de Acesso em Salvador BA' },
@@ -42,13 +44,6 @@ function MetricIcon({ kind }: { kind: string }) {
   if (kind === 'building') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 6h14v23H3zM19 12h10v17H19z"/><path fill="#061a32" d="M6 9h3v3H6zm6 0h3v3h-3zM6 15h3v3H6zm6 0h3v3h-3zM6 21h3v3H6zm6 0h3v3h-3zM22 16h3v3h-3zm0 6h3v3h-3z"/></svg>;
   if (kind === 'star') return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 4 8 9 1-6.5 6.3L24 28l-8-4.6L8 28l1.5-9.7L3 12l9-1 4-8Z"/></svg>;
   return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m13 3 6 0 1 3.2 2.4 1 3-1.2 3 5.2-2.5 2.3v2.8l2.5 2.3-3 5.2-3-1.2-2.4 1L19 27h-6l-1-3.4-2.4-1-3 1.2-3-5.2 2.5-2.3v-2.8L3.6 11l3-5.2 3 1.2 2.4-1L13 3Z"/><circle cx="16" cy="15.8" r="4"/></svg>;
-}
-
-function EquipmentFeatureIcon({ index }: { index: number }) {
-  if (index === 0) return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5 17 5v5c0 4.4-2.9 7.3-7 8.8C5.9 17.3 3 14.4 3 10V5l7-2.5Z"/><path d="m7 10 2 2 4-4"/></svg>;
-  if (index === 1) return <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 5.5v4.8l3 1.8"/></svg>;
-  if (index === 2) return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 2 4 0 .7 2.2 1.5.7 2-.8 2 3.5-1.7 1.5v1.7l1.7 1.5-2 3.5-2-.8-1.5.7L12 18H8l-.7-2.2-1.5-.7-2 .8-2-3.5 1.7-1.5V9.2L3.8 7.7l2-.8 1.5-.7L8 2Z"/><circle cx="10" cy="10" r="2.4"/></svg>;
-  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 17h14M5 14v-4h3v4m2 0V7h3v7m2 0V3h3v11"/></svg>;
 }
 
 export default function Home() {
@@ -136,22 +131,11 @@ export default function Home() {
           <div className="equipment-showcase-copy">
             <span className="eyebrow equipment-eyebrow">Equipamentos em destaque <i aria-hidden="true" /></span>
             <h2 id="equipment-title">Tecnologia que transforma<br/><em>a segurança do seu negócio.</em></h2>
-            <p>Conheça nossas soluções em controle de acesso, reconhecimento facial, relógios de ponto e automação.</p>
+            <p>Conheça equipamentos reais para registro de jornada e reconhecimento facial, com orientação para escolher a versão adequada.</p>
           </div>
-          <Link className="reference-button reference-button-primary equipment-catalog-button" href="/catalogo">Explorar catálogo <span className="button-arrow" aria-hidden="true">→</span></Link>
+          <Link className="reference-button reference-button-primary equipment-catalog-button" href="/catalogo">Conhecer todos os equipamentos <span className="button-arrow" aria-hidden="true">→</span></Link>
         </div>
-        <div className="featured-equipment-grid">
-          {featuredEquipment.map((item) => <article className="featured-equipment-card" key={item.title}>
-            <div className="featured-equipment-image"><Image src={item.image} alt={item.alt} fill quality={88} sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw" /></div>
-            <div className="featured-equipment-content">
-              <span className="featured-equipment-category">{item.kind}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <ul className="equipment-feature-list">{item.features.map((feature, index) => <li key={feature}><EquipmentFeatureIcon index={index}/>{feature}</li>)}</ul>
-              <a className="featured-equipment-quote" href={whatsappLink(item.quote)} target="_blank" rel="noreferrer">Solicitar orçamento <span aria-hidden="true">→</span></a>
-            </div>
-          </article>)}
-        </div>
+        <div className="catalog-products-grid equipment-home-grid">{catalogProducts.filter((product) => product.destaque).map((product) => <CatalogProductCard key={product.id} product={product}/>)}</div>
       </div>
     </section>
     <section className="cta-band"><div className="container cta-inner"><div><span className="eyebrow">Vamos conversar?</span><h2>O próximo passo para<br/>um acesso mais <em>inteligente.</em></h2></div><Link className="button button-white" href="/contato">Fale com nossa equipe <span>↗</span></Link></div></section>

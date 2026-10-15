@@ -69,7 +69,7 @@ export function PWAProvider({ children }: { children: ReactNode }) {
     window.addEventListener('beforeinstallprompt', handleInstallPrompt);
     window.addEventListener('appinstalled', handleInstalled);
 
-    if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
       navigator.serviceWorker.register('/sw.js', { scope: '/' }).then((registration) => {
         setUpdateRegistration(registration);
         const checkWaiting = () => {
