@@ -4,6 +4,8 @@ import { type CatalogHighlightIcon, type CatalogProduct, productCategoryName, pr
 
 function ProductIcon({ name }: { name: CatalogHighlightIcon }) {
   const common = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+  if (name === 'document') return <svg viewBox="0 0 32 32" aria-hidden="true" {...common}><path d="M8 3h12l5 5v21H8zM20 3v6h5M12 15h9m-9 5h9m-9 5h6"/></svg>;
+  if (name === 'gear') return <svg viewBox="0 0 32 32" aria-hidden="true" {...common}><path d="m14 3 4 0 .8 3.1 2.2 1 2.8-1.5 2.8 2.8-1.5 2.8 1 2.2L29 14v4l-2.9.8-1 2.2 1.5 2.8-2.8 2.8-2.8-1.5-2.2 1L18 29h-4l-.8-2.9-2.2-1-2.8 1.5-2.8-2.8 1.5-2.8-1-2.2L3 18v-4l2.9-.8 1-2.2-1.5-2.8 2.8-2.8L11 7.1l2.2-1z"/><circle cx="16" cy="16" r="4"/></svg>;
   if (name === 'print') return <svg viewBox="0 0 32 32" aria-hidden="true" {...common}><path d="M9 11V4h14v7M9 24H5V12h22v12h-4"/><path d="M9 20h14v9H9zM22 16h1"/></svg>;
   if (name === 'clock') return <svg viewBox="0 0 32 32" aria-hidden="true" {...common}><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg>;
   if (name === 'offline') return <svg viewBox="0 0 32 32" aria-hidden="true" {...common}><path d="M5 5 27 27M6 19a10 10 0 0 1 3-12M14 6a10 10 0 0 1 11 14M7 23a10 10 0 0 0 15 2M12 17a5 5 0 0 1 6-5M13 23a5 5 0 0 0 6-4"/></svg>;
@@ -18,7 +20,8 @@ function ProductIcon({ name }: { name: CatalogHighlightIcon }) {
 
 export function CatalogProductCard({ product }: { product: CatalogProduct }) {
   const image = product.imagens[0];
-  return <article className="catalog-product-card">
+  const benefitsIcons: CatalogHighlightIcon[] = product.id === 'dixi-printnox' ? ['document', 'gear', 'users'] : product.chamadasVisuais.map((item) => item.icon);
+  return <article className={`catalog-product-card catalog-product-card--${product.id}`}>
     <div className="catalog-product-visual">
       <Link href={productPath(product)} className="catalog-product-media" aria-label={`Ver detalhes de ${product.nome}`}>
         <Image src={image.src} alt={image.alt} fill sizes="(max-width: 650px) 100vw, (max-width: 1100px) 50vw, 50vw" />
@@ -28,12 +31,11 @@ export function CatalogProductCard({ product }: { product: CatalogProduct }) {
       </div>
     </div>
     <div className="catalog-product-content">
-      <div className="catalog-product-meta"><span className="catalog-product-category"><ProductIcon name="card"/>{productCategoryName(product.categoriaPrincipal)}</span><span className="catalog-product-brand">{product.marca}</span></div>
+      <div className="catalog-product-meta"><span className="catalog-product-category"><ProductIcon name={product.categoriaPrincipal === 'cartograficos' ? 'document' : product.chamadasVisuais[0].icon}/>{productCategoryName(product.categoriaPrincipal)}</span><span className="catalog-product-brand">{product.marca === 'DIXI' ? <>DI<span>XI</span></> : product.marca}</span></div>
       <h3><Link href={productPath(product)}>{product.nome}</Link></h3>
-      <span className="catalog-product-model">Modelo: {product.modelo}</span>
       <p>{product.descricaoCurta}</p>
-      <ul className="catalog-product-benefits">{product.beneficios.slice(0, 3).map((feature, index) => <li key={feature}><span className="catalog-benefit-icon"><ProductIcon name={product.chamadasVisuais[index].icon}/></span><span>{feature}</span></li>)}</ul>
-      <div className="catalog-product-actions"><Link className="catalog-detail-button" href={productPath(product)}>Ver detalhes <span aria-hidden="true">→</span></Link><a className="catalog-quote-button" href={productQuote(product)} target="_blank" rel="noopener noreferrer">Solicitar orçamento <span aria-hidden="true">→</span></a></div>
+      <ul className="catalog-product-benefits">{product.beneficios.slice(0, 3).map((feature, index) => <li key={feature}><span className="catalog-benefit-icon"><ProductIcon name={benefitsIcons[index]}/></span><span>{feature}</span></li>)}</ul>
+      <div className="catalog-product-actions"><Link className="catalog-detail-button" href={productPath(product)}>Ver detalhes <span aria-hidden="true">→</span></Link><a className="catalog-quote-button" href={productQuote(product)} target="_blank" rel="noopener noreferrer"><ProductIcon name="document"/>Solicitar orçamento <span aria-hidden="true">→</span></a></div>
     </div>
   </article>;
 }

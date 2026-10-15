@@ -10,7 +10,7 @@ export const catalogCategories = [
 export type CategoryId = (typeof catalogCategories)[number]['id'];
 export type CatalogImage = { src: string; alt: string; source: string };
 export type CatalogImages = [CatalogImage, ...CatalogImage[]];
-export type CatalogHighlightIcon = 'print' | 'clock' | 'offline' | 'fingerprint' | 'card' | 'network' | 'face' | 'shield' | 'touch' | 'users';
+export type CatalogHighlightIcon = 'print' | 'clock' | 'offline' | 'fingerprint' | 'card' | 'network' | 'face' | 'shield' | 'touch' | 'users' | 'document' | 'gear';
 export type CatalogHighlight = { label: string; icon: CatalogHighlightIcon };
 export type CatalogProduct = {
   id: string;
@@ -56,8 +56,8 @@ export const catalogProducts: CatalogProduct[] = [
   {
     id: 'dixi-printnox', slug: 'relogio-ponto-dixi-printnox', nome: 'Relógio de Ponto Cartográfico DIXI PRINTNOX', marca: 'DIXI', modelo: 'PRINTNOX', categoriaPrincipal: 'cartograficos', categorias: ['cartograficos'],
     descricaoCurta: 'Marcação de jornada em cartão de cartolina com impressão automática e operação prática.', descricaoCompleta: 'O PRINTNOX é uma alternativa cartográfica para empresas que preferem um registro físico da jornada. Seu mecanismo posiciona o cartão e imprime a marcação, com configuração simples para a rotina da equipe.',
-    beneficios: ['Registro físico de fácil conferência', 'Operação independente de conexão com a internet', 'Implantação simples para equipes menores'], funcionalidades: ['Impressão em cartão de ponto', 'Puxador e posicionamento automático do cartão', 'Display para leitura das marcações', 'Estrutura em ABS'],
-    chamadasVisuais: [{ label: 'Impressão automática', icon: 'print' }, { label: 'Registro em cartão', icon: 'clock' }, { label: 'Funciona sem internet', icon: 'offline' }],
+    beneficios: ['Registro físico de fácil conferência', 'Operação independente de conexão com a internet', 'Ideal para equipes menores'], funcionalidades: ['Impressão em cartão de ponto', 'Puxador e posicionamento automático do cartão', 'Display para leitura das marcações', 'Estrutura em ABS'],
+    chamadasVisuais: [{ label: 'Impressão automática', icon: 'print' }, { label: 'Registro seguro', icon: 'clock' }, { label: 'Funciona sem internet', icon: 'offline' }],
     especificacoes: [{ label: 'Tipo', value: 'Relógio cartográfico com cartão de cartolina' }, { label: 'Alimentação', value: 'Fonte externa 100–240 V AC, 50/60 Hz, segundo a DIXI' }, { label: 'Acompanhamento', value: 'A página oficial informa 50 cartões e fita instalada; confirmar o pacote ofertado' }],
     identificacao: ['Cartão de ponto em papel'], conectividade: ['Funcionamento local; internet não necessária'], integracoes: ['Não há integração digital de ponto documentada para este modelo'], aplicacoes: ['Pequenas empresas', 'Operações que preferem cartões impressos'],
     imagens: [{ src: '/images/products/dixi-printnox.webp', alt: 'Relógio cartográfico DIXI PRINTNOX visto de frente', source: 'https://www.dixiponto.com.br/relogio-printnox/' }, { src: '/images/products/dixi-printnox-detail.webp', alt: 'Relógio DIXI PRINTNOX em perspectiva', source: 'https://www.dixiponto.com.br/relogio-printnox/' }], videos: [], fonteTecnica: ['https://www.dixiponto.com.br/relogio-printnox/'],
