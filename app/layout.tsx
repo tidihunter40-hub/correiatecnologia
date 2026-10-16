@@ -4,6 +4,7 @@ import { contact, siteUrl } from '../lib/site';
 import { Header, Footer } from '../components/site-chrome';
 import { PWAProvider } from '../components/pwa-provider';
 import { BottomNavigation } from '../components/bottom-navigation';
+import { FloatingWhatsApp } from '../components/floating-whatsapp';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -81,5 +82,5 @@ const businessSchema = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-BR"><body><PWAProvider><a className="skip-link" href="#conteudo">Pular para o conteúdo</a><Header />{children}<Footer /><BottomNavigation /></PWAProvider><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} /></body></html>;
+  return <html lang="pt-BR"><body><PWAProvider><a className="skip-link" href="#conteudo">Pular para o conteúdo</a><Header />{children}<Footer /><BottomNavigation /><FloatingWhatsApp /></PWAProvider><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} /></body></html>;
 }
