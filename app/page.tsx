@@ -5,6 +5,8 @@ import { VideoShowcase } from '../components/video-showcase';
 import { segments, services, solutionPath, whatsappLink } from '../lib/site';
 import { catalogProducts } from '../lib/catalog';
 import { CatalogProductCard } from '../components/catalog-product-card';
+import { FaqAccordion } from '../components/faq-accordion';
+import { homeFaqQuestions } from '../lib/faq';
 
 export const metadata: Metadata = {
   title: { absolute: 'Correia Tecnologia | Ponto Facial e Controle de Acesso em Salvador BA' },
@@ -143,6 +145,7 @@ export default function Home() {
         <div className="catalog-products-grid equipment-home-grid">{catalogProducts.filter((product) => product.destaque).map((product) => <CatalogProductCard key={product.id} product={product}/>)}</div>
       </div>
     </section>
+    <section className="home-faq section" aria-labelledby="home-faq-title"><div className="container home-faq-inner"><div className="home-faq-intro"><span className="eyebrow">Tire suas dúvidas</span><h2 id="home-faq-title">Perguntas Frequentes</h2><p>Encontre respostas para as principais dúvidas sobre nossas soluções em controle de ponto, reconhecimento facial e automação.</p><Link className="button" href="/perguntas-frequentes">Ver todas as perguntas <span aria-hidden="true">→</span></Link></div><FaqAccordion items={homeFaqQuestions} /></div></section>
     <section className="cta-band"><div className="container cta-inner"><div><span className="eyebrow">Vamos conversar?</span><h2>O próximo passo para<br/>um acesso mais <em>inteligente.</em></h2></div><Link className="button button-white" href="/contato">Fale com nossa equipe <span>↗</span></Link></div></section>
   </main>;
 }
