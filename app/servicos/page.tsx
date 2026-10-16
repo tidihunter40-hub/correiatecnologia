@@ -24,6 +24,8 @@ export default function Servicos() { return <main id="conteudo">
       <div className="solutions-feature-grid" id="servicos-lista">
         {solutionShowcaseServices.map((service) => <SolutionCard key={service.slug} item={service} />)}
       </div>
+      <div className="point-content-intro"><span className="eyebrow">Sistemas de gestão de ponto</span><h2>Secullum para sua operação</h2><p>Venda, instalação e suporte para Secullum Ponto Web e Secullum Ponto Offline em Salvador. Avaliamos a versão, os equipamentos e a infraestrutura antes da implantação.</p></div>
+      <div className="related-links"><Link href="/sistemas/secullum-ponto-web">Secullum Ponto Web <b aria-hidden="true">→</b></Link><Link href="/sistemas/secullum-ponto-offline">Secullum Ponto Offline <b aria-hidden="true">→</b></Link></div>
       <VideoShowcase
         id="evo-facial"
         eyebrow="EVO FACIAL · DEMONSTRAÇÃO"

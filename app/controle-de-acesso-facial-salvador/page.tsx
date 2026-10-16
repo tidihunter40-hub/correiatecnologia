@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { SubpageHero } from '../../components/subpage-hero';
 import { contact, services, siteUrl, solutionPath, whatsappLink } from '../../lib/site';
 import { serviceSeoContent } from '../../lib/service-seo';
+import Image from 'next/image';
+import { catalogProducts, productPath } from '../../lib/catalog';
 
 const canonicalPath = '/controle-de-acesso-facial-salvador';
 const service = services.find((item) => item.slug === 'controle-de-acesso-facial')!;
@@ -42,6 +44,7 @@ const structuredData = [
 
 export default function ControleDeAcessoFacialPage() {
   const quote = whatsappLink('Olá! Gostaria de solicitar um orçamento para controle de acesso facial em Salvador.');
+  const facialAccess = catalogProducts.find((product) => product.id === 'evo-facial')!;
   return <main id="conteudo">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} />
     <SubpageHero
@@ -66,6 +69,7 @@ export default function ControleDeAcessoFacialPage() {
         <article><h3>Benefícios para a operação</h3><p>A solução pode apoiar a organização das permissões e reduzir etapas manuais de identificação. O resultado esperado depende do dimensionamento, da configuração e das regras adotadas em cada local.</p></article>
         <article><h3>Instalação, suporte e dados</h3><p>A equipe pode avaliar o local, indicar equipamentos compatíveis e definir o escopo de instalação e suporte. Como dados biométricos são sensíveis, a empresa deve estabelecer finalidade, acesso e retenção adequados ao seu contexto e às obrigações aplicáveis.</p></article>
       </div>
+      <section className="point-equipment" aria-labelledby="access-equipment-title"><div className="point-equipment-photo"><Image src={facialAccess.imagens[0].src} alt={facialAccess.imagens[0].alt} fill sizes="(max-width: 760px) 100vw, 300px" /></div><div><span className="eyebrow">Equipamento do catálogo</span><h2 id="access-equipment-title">Leitor de reconhecimento facial EVO</h2><p>Fotografia do produto disponibilizada pela fabricante. O EVO Facial 40 é voltado ao controle de acesso; recursos e integração dependem do projeto e da versão.</p><Link className="text-link" href={productPath(facialAccess)}>Ver produto e informações técnicas <span aria-hidden="true">→</span></Link></div></section>
       <div className="point-salvador-panel"><div><span className="eyebrow">Atendimento local</span><h2>Controle de acesso facial em Salvador</h2>
         <p>A Correia Tecnologia e Automações recebe consultas sobre equipamentos e projetos para Salvador e região. Para solicitar um orçamento, informe o tipo de entrada, o fluxo de pessoas, as regras de liberação e os equipamentos já instalados. A equipe confirma as opções e o escopo de instalação e suporte.</p><p className="point-address">{contact.address}</p>
       </div><div className="point-actions"><a className="button" href={quote} target="_blank" rel="noreferrer">Orçamento pelo WhatsApp <span aria-hidden="true">↗</span></a><Link className="text-link" href="/contato">Outras formas de contato <span aria-hidden="true">→</span></Link><a className="text-link" href={`tel:${contact.phoneHref}`}>Ligar: {contact.phone} <span aria-hidden="true">↗</span></a></div></div>

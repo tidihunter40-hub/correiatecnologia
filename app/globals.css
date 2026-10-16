@@ -465,6 +465,13 @@
 .point-actions{display:grid;min-width:225px;gap:13px;justify-items:start}
 .point-actions .button{min-height:46px}
 .point-actions .text-link{font-size:12px}
+.point-equipment{display:grid;grid-template-columns:minmax(230px,300px) 1fr;align-items:center;gap:28px;margin-top:30px;padding:20px;border:1px solid var(--line);border-radius:13px;background:#f7fafd}
+.point-equipment-photo{position:relative;min-height:220px;border-radius:9px;background:#fff;overflow:hidden}
+.point-equipment-photo img{object-fit:contain;padding:14px}
+.point-equipment h2{margin:9px 0;color:var(--navy);font:700 clamp(22px,3vw,30px)/1.2 var(--font-display)}
+.point-equipment p{color:var(--muted);font-size:13px;line-height:1.7}
+.point-equipment .text-link{font-size:12px}
+@media(max-width:760px){.point-equipment{grid-template-columns:1fr;gap:16px;padding:16px}.point-equipment-photo{min-height:180px}}
 @media(max-width:760px){.point-content-intro{margin-bottom:24px;text-align:left}.point-content-intro h2{font-size:31px}.point-content-intro p,.point-content-grid p{font-size:13px}.point-content-grid{grid-template-columns:1fr;gap:10px}.point-content-grid article{padding:19px}.point-content-grid h3{font-size:16px}.point-salvador-panel{align-items:stretch;flex-direction:column;gap:19px;margin-top:21px;padding:20px}.point-salvador-panel h2{font-size:26px}.point-actions{min-width:0;gap:12px}.point-actions .button{width:100%;justify-content:center}.point-faq{margin-top:28px}.point-faq p{font-size:13px}}
 
 /* Etapa 3: final responsive safeguards for narrow phones and intermediate tablets. */

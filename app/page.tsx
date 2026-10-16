@@ -110,6 +110,11 @@ export default function Home() {
       </div>
     </section>
 
+    <section className="section point-content-section" aria-labelledby="home-software-title"><div className="container point-content-wrap">
+      <div className="point-content-intro"><span className="eyebrow">Gestão de ponto eletrônico</span><h2 id="home-software-title">Sistemas de ponto para empresas em Salvador</h2><p>A Correia Tecnologia e Automações comercializa, instala e presta suporte a soluções Secullum para tratamento de jornada. Conheça as opções Web e Offline e consulte a equipe sobre versões, integração com relógios de ponto e implantação.</p></div>
+      <div className="related-links"><Link href="/sistemas/secullum-ponto-web">Secullum Ponto Web em Salvador <b aria-hidden="true">→</b></Link><Link href="/sistemas/secullum-ponto-offline">Secullum Ponto Offline em Salvador <b aria-hidden="true">→</b></Link><Link href="/relogio-de-ponto-facial-salvador">Relógios de ponto facial <b aria-hidden="true">→</b></Link></div>
+    </div></section>
+
     <VideoShowcase
       id="dixi-facial"
       eyebrow="DIXI FACIAL · DEMONSTRAÇÃO"
